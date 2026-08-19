@@ -1,0 +1,1934 @@
+/* ============================================================
+   post-182.css
+   ============================================================
+   Elementor Page 182 — VSL "Fungos e Insetos"
+   CSS específico da página (reconstruído).
+
+   Estrutura (data-ids):
+   HERO:        2b399a14 → 7dc148b6 → (6c800616 heading, 60ea43e text,
+                                        2ecafbcb iframe VSLPlay, 739142f6 CTA)
+   STORY:       4aa67baf → (45270c05) + cards 41dbdd9d / 2d20f893 / 9a46186
+                (cada card: painel vazio 28a0518a/59991c26/4bad24b6 + texto)
+   PROBLEMA:    1dcd672f → 382db7c5 + 31093005
+                536e5ae0 → 7dcd76fb + 5f8eb5a0 + CTA 119f6ddb + 1c6016ec
+                + grid 6abadecb (cards 6fb9f657/304d5df8/1d350393) + 1aabe18a
+   TREINAMENTO: 2f419218 → 55b8a5df + row 702b7ec (3f1c3a05 texto + 64f367bc img)
+                + 34485aaa
+   RONE:        19c302f3 → 16ba1bff + 6d799d6d (55705ad2) + 6741303e
+   GARANTIA:    7e19a4f2 (boxed) → 378aef55 (6b231f12 + 55538c86 + botao-neon) + 322dd571
+   BÔNUS:       7ad5df86 → 3c32b70e + 7aa24e16 + 6d80a184
+   INVESTIMENTO:7484647c (#valor) → 6529c91c (divider 24bcbe6c + 48fc113f
+                + icon-list 24d0dea7 + preço 35f38daa + botao-neon + Kiwify)
+                + 2003f97
+   INSTRUTOR:   b39e0a → 33834633 (29a9aa4d texto — painel 1e1ae3b5 removido)
+   FAQ:         69f681d7 (boxed) → 2d63232c + 5c364f2d (#orchid-faq) + 7e6f91e3
+                + 57ac765e + CTA 25e4be
+   FOOTER:      2eadd354 (boxed/gradient) → 17e6c6d6 (bc5d2da + 4f470a37
+                voltar-ao-topo) + 7a850257 (reveal-scroll) + divider 24bb0b56
+
+   NOTA: estilos inline que JÁ existem no HTML (reveal-scroll,
+   botao-neon, #orchid-faq, vslplay-show) NÃO são duplicados aqui.
+   ============================================================ */
+
+/* ============================================================
+   0) KEYFRAMES — pulso do CTA (lilás)
+   ============================================================ */
+@keyframes vsl-cta-pulse {
+	0%, 100% {
+		box-shadow: 0 0 14px rgba(139, 92, 246, 0.45);
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 0 0 38px rgba(139, 92, 246, 0.95);
+		transform: scale(1.03);
+	}
+}
+
+/* ============================================================
+   1) HERO — container principal (2b399a14)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-2b399a14 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--flex-wrap: wrap;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	min-height: 100vh;
+	background-color: var(--e-global-color-primary);
+	background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.07), transparent 55%);
+	padding: 110px 20px 120px 20px;
+}
+
+/* ---- wrapper interno do hero (7dc148b6) ---- */
+.elementor-182 .elementor-element.elementor-element-7dc148b6 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 26px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+
+	width: 100%;
+	max-width: 960px;
+	margin-inline: auto;
+}
+
+/* ---- título do hero (6c800616) ---- */
+.elementor-182 .elementor-element.elementor-element-6c800616 {
+	width: 100%;
+	max-width: 900px;
+}
+
+.elementor-182 .elementor-element.elementor-element-6c800616 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(28px, 4.6vw, 54px);
+	font-weight: 700;
+	line-height: 1.18;
+	text-align: center;
+	text-wrap: balance;
+}
+
+/* ---- subtítulo do hero (60ea43e) ---- */
+.elementor-182 .elementor-element.elementor-element-60ea43e {
+	width: 100%;
+	max-width: 760px;
+}
+
+.elementor-182 .elementor-element.elementor-element-60ea43e .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(17px, 1.8vw, 20px);
+	line-height: 1.7;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-60ea43e .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ---- iframe VSLPlay (2ecafbcb) ---- */
+.elementor-182 .elementor-element.elementor-element-2ecafbcb {
+	width: 100%;
+	max-width: 900px;
+}
+
+.elementor-182 .elementor-element.elementor-element-2ecafbcb [data-vslplay] {
+	border-radius: 16px;
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 40px rgba(139, 92, 246, 0.06);
+}
+
+/* ---- CTA do hero (739142f6) — botão lilás ---- */
+.elementor-182 .elementor-element.elementor-element-739142f6 {
+	width: 100%;
+	max-width: 560px;
+	margin-top: 10px;
+}
+
+.elementor-182 .elementor-element.elementor-element-739142f6 .elementor-button {
+	background-color: var(--e-global-color-accent-dark);
+	background-image: linear-gradient(90deg, #8B5CF6 0%, #6D28D9 100%);
+	color: #fff;
+	fill: #fff;
+	font-family: var(--e-global-typography-accent-font-family);
+	font-size: clamp(15px, 1.8vw, 17px);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 999px;
+	padding: 20px 40px;
+	box-shadow: 0 0 22px rgba(139, 92, 246, 0.55);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	animation: vsl-cta-pulse 1.6s ease-in-out infinite;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-739142f6 .elementor-button:hover,
+.elementor-182 .elementor-element.elementor-element-739142f6 .elementor-button:focus {
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 0 45px rgba(139, 92, 246, 0.9);
+	animation-play-state: paused;
+}
+
+/* ============================================================
+   2) STORYTELLING — seção 4aa67baf
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-4aa67baf {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: flex-start;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-secondary);
+	padding: 90px 20px 90px 20px;
+}
+
+/* ---- heading de seção (45270c05) ---- */
+.elementor-182 .elementor-element.elementor-element-45270c05 {
+	width: 100%;
+	max-width: 880px;
+	margin-block-end: 50px;
+}
+
+.elementor-182 .elementor-element.elementor-element-45270c05 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ---- cards de storytelling (41dbdd9d / 2d20f893 / 9a46186) ---- */
+.elementor-182 .elementor-element.elementor-element-41dbdd9d,
+.elementor-182 .elementor-element.elementor-element-2d20f893,
+.elementor-182 .elementor-element.elementor-element-9a46186 {
+	--display: flex;
+	--flex-direction: row;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: stretch;
+	--flex-wrap: wrap;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	max-width: 1100px;
+	margin-inline: auto;
+	margin-block-end: 40px;
+	background-color: var(--e-global-color-card);
+	border-radius: 22px;
+	padding: 0;
+	overflow: hidden;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.elementor-182 .elementor-element.elementor-element-41dbdd9d:last-child,
+.elementor-182 .elementor-element.elementor-element-2d20f893:last-child,
+.elementor-182 .elementor-element.elementor-element-9a46186:last-child {
+	margin-block-end: 0;
+}
+
+/* ---- painéis de imagem (28a0518a / 59991c26 / 4bad24b6) ----
+   Containers vazios no HTML: no original exibiam imagens via CSS.
+   Reconstrução: painel decorativo com radial-gradients de folhagem. */
+.elementor-182 .elementor-element.elementor-element-28a0518a,
+.elementor-182 .elementor-element.elementor-element-59991c26,
+.elementor-182 .elementor-element.elementor-element-4bad24b6 {
+	--display: flex;
+	--gap: 0px 0px;
+
+	width: 50%;
+	min-height: 320px;
+	background-color: #F3EFFB;
+	background-image:
+		radial-gradient(circle at 30% 25%, rgba(139, 92, 246, 0.16), transparent 55%),
+		radial-gradient(circle at 78% 80%, rgba(109, 40, 217, 0.1), transparent 50%),
+		linear-gradient(150deg, #F3EFFB 0%, #E8E0F8 100%);
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* ---- colunas de texto dos cards ---- */
+.elementor-182 .elementor-element.elementor-element-74b01242,
+.elementor-182 .elementor-element.elementor-element-701ac1ae,
+.elementor-182 .elementor-element.elementor-element-43606e5c {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 18px 0px;
+	--justify-content: center;
+
+	width: 50%;
+	padding: 44px 48px;
+}
+
+/* barra de acento lilás no topo da coluna de texto */
+.elementor-182 .elementor-element.elementor-element-74b01242::before,
+.elementor-182 .elementor-element.elementor-element-701ac1ae::before,
+.elementor-182 .elementor-element.elementor-element-43606e5c::before {
+	content: "";
+	width: 52px;
+	height: 5px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #8B5CF6, #6D28D9);
+	margin-block-end: 6px;
+}
+
+/* ---- títulos dos cards (60142673 / 7a9f0a9e / 2a874d1d) ---- */
+.elementor-182 .elementor-element.elementor-element-60142673,
+.elementor-182 .elementor-element.elementor-element-7a9f0a9e,
+.elementor-182 .elementor-element.elementor-element-2a874d1d {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-60142673 .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-7a9f0a9e .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-2a874d1d .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 2.8vw, 34px);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: left;
+}
+
+/* ---- textos dos cards (441024a5 / 2cb50d83 / 7d413a88) ---- */
+.elementor-182 .elementor-element.elementor-element-441024a5,
+.elementor-182 .elementor-element.elementor-element-2cb50d83,
+.elementor-182 .elementor-element.elementor-element-7d413a88 {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-441024a5 .elementor-text-editor,
+.elementor-182 .elementor-element.elementor-element-2cb50d83 .elementor-text-editor,
+.elementor-182 .elementor-element.elementor-element-7d413a88 .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 17px;
+	line-height: 1.8;
+	text-align: left;
+}
+
+.elementor-182 .elementor-element.elementor-element-441024a5 .elementor-text-editor p,
+.elementor-182 .elementor-element.elementor-element-2cb50d83 .elementor-text-editor p,
+.elementor-182 .elementor-element.elementor-element-7d413a88 .elementor-text-editor p {
+	margin-block-end: 8px;
+}
+
+/* ---- "Por um tempo... funciona." (64bb3740) ---- */
+.elementor-182 .elementor-element.elementor-element-64bb3740 {
+	width: 100%;
+	max-width: 880px;
+	margin-block-start: 20px;
+	margin-block-end: 40px;
+}
+
+.elementor-182 .elementor-element.elementor-element-64bb3740 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.4vw, 38px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ============================================================
+   3) "E é aí que a maioria trava" — 1dcd672f
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-1dcd672f {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-primary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-382db7c5 {
+	width: 100%;
+	max-width: 900px;
+	margin-block-end: 24px;
+}
+
+.elementor-182 .elementor-element.elementor-element-382db7c5 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-31093005 {
+	width: 100%;
+	max-width: 800px;
+}
+
+.elementor-182 .elementor-element.elementor-element-31093005 .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(17px, 1.8vw, 19px);
+	line-height: 1.75;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-31093005 .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ============================================================
+   4) "O problema não é falta de cuidado" — 536e5ae0
+   (inclui as 3 forças ocultas)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-536e5ae0 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-secondary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-7dcd76fb {
+	width: 100%;
+	max-width: 900px;
+	margin-block-end: 22px;
+}
+
+.elementor-182 .elementor-element.elementor-element-7dcd76fb .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-5f8eb5a0 {
+	width: 100%;
+	max-width: 780px;
+	margin-block-end: 36px;
+}
+
+.elementor-182 .elementor-element.elementor-element-5f8eb5a0 .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(17px, 1.8vw, 19px);
+	line-height: 1.75;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-5f8eb5a0 .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ---- CTA secundário (119f6ddb) ---- */
+.elementor-182 .elementor-element.elementor-element-119f6ddb {
+	width: 100%;
+	max-width: 480px;
+	margin-block-end: 40px;
+}
+
+.elementor-182 .elementor-element.elementor-element-119f6ddb .elementor-button {
+	background-color: var(--e-global-color-accent-dark);
+	background-image: linear-gradient(90deg, #8B5CF6 0%, #6D28D9 100%);
+	color: #fff;
+	fill: #fff;
+	font-family: var(--e-global-typography-accent-font-family);
+	font-size: clamp(14px, 1.6vw, 16px);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 999px;
+	padding: 18px 36px;
+	box-shadow: 0 0 22px rgba(139, 92, 246, 0.55);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	animation: vsl-cta-pulse 1.6s ease-in-out infinite;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-119f6ddb .elementor-button:hover,
+.elementor-182 .elementor-element.elementor-element-119f6ddb .elementor-button:focus {
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 0 45px rgba(139, 92, 246, 0.9);
+	animation-play-state: paused;
+}
+
+/* ---- "Existem três forças ocultas..." (1c6016ec) ---- */
+.elementor-182 .elementor-element.elementor-element-1c6016ec {
+	width: 100%;
+	max-width: 900px;
+	margin-block-end: 44px;
+}
+
+.elementor-182 .elementor-element.elementor-element-1c6016ec .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 42px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ---- grid das 3 forças (6abadecb) ---- */
+.elementor-182 .elementor-element.elementor-element-6abadecb {
+	--display: grid;
+	--e-con-grid-template-columns: repeat(3, 1fr);
+	--e-con-grid-template-rows: repeat(1, 1fr);
+	--grid-auto-flow: row;
+	--gap: 26px 26px;
+	--align-items: stretch;
+
+	width: 100%;
+	max-width: 1120px;
+	margin-inline: auto;
+	margin-block-end: 50px;
+}
+
+/* ---- cards das forças (6fb9f657 FUNGO / 304d5df8 INSETOS / 1d350393 AMBIENTE) ---- */
+.elementor-182 .elementor-element.elementor-element-6fb9f657,
+.elementor-182 .elementor-element.elementor-element-304d5df8,
+.elementor-182 .elementor-element.elementor-element-1d350393 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 22px 0px;
+	--justify-content: flex-start;
+	--align-items: center;
+	--align-content: center;
+
+	width: 100%;
+	min-height: 100%;
+	border-radius: 20px;
+	padding: 42px 28px 42px 28px;
+	box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-6fb9f657:hover,
+.elementor-182 .elementor-element.elementor-element-304d5df8:hover,
+.elementor-182 .elementor-element.elementor-element-1d350393:hover {
+	transform: translateY(-6px);
+}
+
+/* gradientes distintos por card (lilás → off-white) */
+.elementor-182 .elementor-element.elementor-element-6fb9f657 {
+	background-color: #F3EFFB;
+	background-image: linear-gradient(160deg, #F3EFFB 0%, #FFFBF4 100%);
+	border: 1px solid rgba(139, 92, 246, 0.22);
+}
+
+.elementor-182 .elementor-element.elementor-element-6fb9f657:hover {
+	border-color: rgba(139, 92, 246, 0.5);
+	box-shadow: 0 24px 55px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.08);
+}
+
+.elementor-182 .elementor-element.elementor-element-304d5df8 {
+	background-color: #EDE7FA;
+	background-image: linear-gradient(160deg, #EDE7FA 0%, #FFFBF4 100%);
+	border: 1px solid rgba(139, 92, 246, 0.22);
+}
+
+.elementor-182 .elementor-element.elementor-element-304d5df8:hover {
+	border-color: rgba(139, 92, 246, 0.5);
+	box-shadow: 0 24px 55px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+.elementor-182 .elementor-element.elementor-element-1d350393 {
+	background-color: #E8E0F8;
+	background-image: linear-gradient(160deg, #E8E0F8 0%, #FFFBF4 100%);
+	border: 1px solid rgba(139, 92, 246, 0.22);
+}
+
+.elementor-182 .elementor-element.elementor-element-1d350393:hover {
+	border-color: rgba(139, 92, 246, 0.5);
+	box-shadow: 0 24px 55px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.08);
+}
+
+/* ---- image-box FUNGO / INSETOS / AMBIENTE (6d755111 / 5e055fde / 14ba79f) ---- */
+.elementor-182 .elementor-element.elementor-element-6d755111,
+.elementor-182 .elementor-element.elementor-element-5e055fde,
+.elementor-182 .elementor-element.elementor-element-14ba79f {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-6d755111 .elementor-image-box-wrapper,
+.elementor-182 .elementor-element.elementor-element-5e055fde .elementor-image-box-wrapper,
+.elementor-182 .elementor-element.elementor-element-14ba79f .elementor-image-box-wrapper {
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-6d755111 .elementor-image-box-title,
+.elementor-182 .elementor-element.elementor-element-5e055fde .elementor-image-box-title,
+.elementor-182 .elementor-element.elementor-element-14ba79f .elementor-image-box-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(22px, 2.4vw, 28px);
+	font-weight: 700;
+	line-height: 1.3;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	text-align: center;
+	margin-block-end: 14px;
+}
+
+.elementor-182 .elementor-element.elementor-element-6d755111 .elementor-image-box-description,
+.elementor-182 .elementor-element.elementor-element-5e055fde .elementor-image-box-description,
+.elementor-182 .elementor-element.elementor-element-14ba79f .elementor-image-box-description {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1.7;
+	text-align: center;
+}
+
+/* ---- "Estes não são detalhes." (1aabe18a) ---- */
+.elementor-182 .elementor-element.elementor-element-1aabe18a {
+	width: 100%;
+	max-width: 880px;
+}
+
+.elementor-182 .elementor-element.elementor-element-1aabe18a .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.4vw, 38px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ============================================================
+   5) "No treinamento, você aprenderá" — 2f419218 (UPGRADE)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-2f419218 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-primary);
+	padding: 100px 20px 100px 20px;
+	position: relative;
+}
+
+/* brilho lilás sutil no topo da seção */
+.elementor-182 .elementor-element.elementor-element-2f419218::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 720px;
+	height: 320px;
+	background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.14), transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-2f419218 > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* ---- heading de seção (55b8a5df) ---- */
+.elementor-182 .elementor-element.elementor-element-55b8a5df {
+	width: 100%;
+	max-width: 900px;
+	margin-block-end: 55px;
+}
+
+.elementor-182 .elementor-element.elementor-element-55b8a5df .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(28px, 4vw, 46px);
+	font-weight: 800;
+	line-height: 1.2;
+	text-align: center;
+}
+
+/* sublinhado gradiente sob o título */
+.elementor-182 .elementor-element.elementor-element-55b8a5df .elementor-heading-title::after {
+	content: "";
+	display: block;
+	width: 90px;
+	height: 5px;
+	margin: 18px auto 0;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #8B5CF6, #6D28D9);
+	box-shadow: 0 4px 14px rgba(139, 92, 246, 0.45);
+}
+
+/* ---- row texto + imagem (702b7ec) ---- */
+.elementor-182 .elementor-element.elementor-element-702b7ec {
+	--display: flex;
+	--flex-direction: row;
+	--gap: 40px 50px;
+	--justify-content: center;
+	--align-items: center;
+	--flex-wrap: wrap;
+
+	width: 100%;
+	max-width: 1100px;
+	margin-inline: auto;
+	margin-block-end: 60px;
+}
+
+/* ---- coluna de texto (3f1c3a05) ---- */
+.elementor-182 .elementor-element.elementor-element-3f1c3a05 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 14px 0px;
+
+	width: 56%;
+}
+
+.elementor-182 .elementor-element.elementor-element-5918606b {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.7;
+	text-align: left;
+}
+
+/* cada item da lista vira um card com ícone de check lilás */
+.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p {
+	position: relative;
+	padding: 18px 20px 18px 58px;
+	margin-block-end: 14px;
+	background: rgba(255, 255, 255, 0.78);
+	border: 1px solid rgba(139, 92, 246, 0.18);
+	border-radius: 14px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p:last-child {
+	margin-block-end: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p::before {
+	content: "✓";
+	position: absolute;
+	left: 18px;
+	top: 18px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p:hover {
+	transform: translateY(-3px);
+	border-color: rgba(139, 92, 246, 0.45);
+	box-shadow: 0 12px 30px rgba(139, 92, 246, 0.16);
+}
+
+/* ---- coluna de imagem (64f367bc) ---- */
+.elementor-182 .elementor-element.elementor-element-64f367bc {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--align-items: center;
+
+	width: 44%;
+	position: relative;
+}
+
+/* moldura gradiente atrás da imagem */
+.elementor-182 .elementor-element.elementor-element-64f367bc::before {
+	content: "";
+	position: absolute;
+	inset: 24px -18px -18px 24px;
+	background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(109, 40, 217, 0.12));
+	border-radius: 30px;
+	z-index: 0;
+	filter: blur(1px);
+}
+
+.elementor-182 .elementor-element.elementor-element-296e25ec {
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+.elementor-182 .elementor-element.elementor-element-296e25ec img {
+	border-radius: 24px;
+	border: 3px solid rgba(255, 255, 255, 0.92);
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35), 0 0 40px rgba(139, 92, 246, 0.18);
+}
+
+/* ---- "Há mais de 11 anos..." (34485aaa) ---- */
+.elementor-182 .elementor-element.elementor-element-34485aaa {
+	width: 100%;
+	max-width: 900px;
+}
+
+.elementor-182 .elementor-element.elementor-element-34485aaa .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.4vw, 40px);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: center;
+}
+
+/* ============================================================
+   6) RONE — seção 19c302f3
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-19c302f3 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-secondary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-16ba1bff {
+	width: 100%;
+	max-width: 900px;
+	margin-block-end: 40px;
+}
+
+.elementor-182 .elementor-element.elementor-element-16ba1bff .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ---- "Produtores diferentes..." (6d799d6d → 55705ad2) ---- */
+.elementor-182 .elementor-element.elementor-element-6d799d6d {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--align-items: center;
+
+	width: 100%;
+	max-width: 960px;
+	margin-inline: auto;
+	margin-block-end: 40px;
+}
+
+.elementor-182 .elementor-element.elementor-element-55705ad2 {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-55705ad2 .elementor-heading-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.2vw, 36px);
+	font-weight: 700;
+	line-height: 1.45;
+	text-align: center;
+}
+
+/* ---- "E, por meio dessa experiência..." (6741303e) ---- */
+.elementor-182 .elementor-element.elementor-element-6741303e {
+	width: 100%;
+	max-width: 900px;
+}
+
+.elementor-182 .elementor-element.elementor-element-6741303e .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.4vw, 40px);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: center;
+}
+
+/* ============================================================
+   7) GARANTIA — 7e19a4f2 (boxed)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-7e19a4f2 {
+	--display: flex;
+	--flex-direction: column;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--gap: 0px 0px;
+	--content-width: min(100%, 900px);
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-primary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-378aef55 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 22px 0px;
+	--justify-content: center;
+	--align-items: flex-start;
+
+	width: 100%;
+	max-width: 500px;
+	margin-inline: 0;
+	margin-block-start: 100px;
+	margin-block-end: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-6b231f12 {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-6b231f12 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.6vw, 40px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: left;
+}
+
+.elementor-182 .elementor-element.elementor-element-55538c86 {
+	width: 100%;
+	max-width: 720px;
+}
+
+.elementor-182 .elementor-element.elementor-element-55538c86 .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(16px, 1.7vw, 18px);
+	line-height: 1.7;
+	text-align: left;
+}
+
+.elementor-182 .elementor-element.elementor-element-55538c86 .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ---- HTML widget com botao-neon (597f897d) — estilos inline no HTML ---- */
+.elementor-182 .elementor-element.elementor-element-597f897d {
+	width: 100%;
+	margin-block-start: 10px;
+}
+
+.elementor-182 .elementor-element.elementor-element-597f897d .botao-wrap {
+	justify-content: flex-start;
+}
+
+/* ---- "E há também um bônus especial." (322dd571) ---- */
+.elementor-182 .elementor-element.elementor-element-322dd571 {
+	width: 100%;
+	max-width: 880px;
+	margin-block-start: 180px;
+}
+
+.elementor-182 .elementor-element.elementor-element-322dd571 .elementor-heading-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(24px, 3.4vw, 38px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ============================================================
+   8) BÔNUS — 7ad5df86
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-7ad5df86 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-secondary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-3c32b70e {
+	width: 100%;
+	max-width: 594px;
+	margin-block-end: 22px;
+}
+
+.elementor-182 .elementor-element.elementor-element-3c32b70e .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(28px, 2.6vw, 36px);
+	font-weight: 600;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-7aa24e16 {
+	width: 100%;
+	max-width: 592px;
+	margin-block-end: 30px;
+}
+
+.elementor-182 .elementor-element.elementor-element-7aa24e16 .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(19px, 1.5vw, 21px);
+	font-weight: 400;
+	line-height: 1.7;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-7aa24e16 .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-7aa24e16 p.rone {
+	margin: 0 auto;
+	max-width: 540px;
+	color: rgba(255, 255, 255, 0.94);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(17px, 1.45vw, 20px);
+	font-weight: 400;
+	line-height: 1.8;
+	letter-spacing: 0.01em;
+	text-align: center;
+	text-wrap: balance;
+	text-shadow: 0 2px 12px rgba(35, 12, 48, 0.42);
+}
+
+.elementor-182 .elementor-element.elementor-element-6d80a184 {
+	width: 100%;
+	max-width: 594px;
+}
+
+.elementor-182 .elementor-element.elementor-element-6d80a184 .elementor-heading-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(28px, 2.6vw, 36px);
+	font-weight: 600;
+	line-height: 1.3;
+	text-align: center;
+}
+
+/* ============================================================
+   9) INVESTIMENTO — 7484647c (#valor)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-7484647c {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-primary);
+	padding: 90px 20px 110px 20px;
+}
+
+/* ---- card de preço (6529c91c — gradient) ---- */
+.elementor-182 .elementor-element.elementor-element-6529c91c {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 26px 0px;
+	--justify-content: center;
+	--align-items: center;
+
+	width: 100%;
+	max-width: 720px;
+	margin-inline: auto;
+	margin-block-end: 70px;
+	background-color: #F3EFFB;
+	background-image: linear-gradient(180deg, #F3EFFB 0%, #FFFBF4 100%);
+	border: 2px solid rgba(139, 92, 246, 0.45);
+	border-radius: 26px;
+	padding: 50px 38px 50px 38px;
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), 0 0 50px rgba(139, 92, 246, 0.1);
+}
+
+/* ---- divider do card (24bcbe6c) ---- */
+.elementor-182 .elementor-element.elementor-element-24bcbe6c {
+	--divider-border-style: solid;
+	--divider-color: rgba(139, 92, 246, 0.35);
+	--divider-border-width: 2px;
+
+	width: 100%;
+	max-width: 180px;
+	margin-inline: auto;
+}
+
+.elementor-182 .elementor-element.elementor-element-24bcbe6c .elementor-divider {
+	padding-block: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-24bcbe6c .elementor-divider-separator {
+	width: 100%;
+}
+
+/* ---- "Investimento:" (48fc113f) ---- */
+.elementor-182 .elementor-element.elementor-element-48fc113f {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-48fc113f .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(22px, 2.8vw, 30px);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/* ---- icon-list de benefícios (24d0dea7) ---- */
+.elementor-182 .elementor-element.elementor-element-24d0dea7 {
+	width: 100%;
+	max-width: 560px;
+}
+
+.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-items {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-item {
+	padding: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-icon {
+	--e-icon-list-icon-size: 18px;
+	--e-icon-list-icon-align: left;
+}
+
+.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-icon svg {
+	fill: var(--e-global-color-accent);
+	filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6));
+}
+
+.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-text {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+/* ---- preço (35f38daa) ---- */
+.elementor-182 .elementor-element.elementor-element-35f38daa {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-35f38daa .elementor-heading-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(52px, 7.5vw, 76px);
+	font-weight: 800;
+	line-height: 1;
+	text-align: center;
+	text-shadow: 0 0 35px rgba(139, 92, 246, 0.55);
+}
+
+/* ---- HTML widget botao-neon (38f81515) — estilos inline no HTML ---- */
+.elementor-182 .elementor-element.elementor-element-38f81515 {
+	width: 100%;
+}
+
+/* ---- selo de pagamento Kiwify (74bc0c11) ---- */
+.elementor-182 .elementor-element.elementor-element-74bc0c11 {
+	width: 100%;
+	max-width: 220px;
+}
+
+.elementor-182 .elementor-element.elementor-element-74bc0c11 img {
+	opacity: 0.9;
+	filter: brightness(0) contrast(1.2);
+}
+
+/* ---- "Conheça seu instrutor" (2003f97) ---- */
+.elementor-182 .elementor-element.elementor-element-2003f97 {
+	width: 100%;
+	max-width: 880px;
+}
+
+.elementor-182 .elementor-element.elementor-element-2003f97 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ============================================================
+   10) INSTRUTOR — b39e0a
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-b39e0a {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 0px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-secondary);
+	padding: 90px 20px 90px 20px;
+}
+
+/* ---- row (33834633) ---- */
+.elementor-182 .elementor-element.elementor-element-33834633 {
+	--display: flex;
+	--flex-direction: row;
+	--gap: 40px 50px;
+	--justify-content: center;
+	--align-items: center;
+	--flex-wrap: wrap;
+
+	width: 100%;
+	max-width: 1100px;
+	margin-inline: auto;
+}
+
+/* ---- coluna de texto (29a9aa4d) ---- */
+.elementor-182 .elementor-element.elementor-element-29a9aa4d {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 20px 0px;
+
+	width: 100%;
+	max-width: 900px;
+}
+
+.elementor-182 .elementor-element.elementor-element-2e02e734 {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-2e02e734 .elementor-heading-title {
+	color: var(--e-global-color-accent);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.2vw, 38px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-d3e5f2a {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-d3e5f2a .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 16.5px;
+	line-height: 1.85;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-d3e5f2a .elementor-text-editor p {
+	margin-block-end: 14px;
+}
+
+.elementor-182 .elementor-element.elementor-element-d3e5f2a .elementor-text-editor p:last-child {
+	margin-block-end: 0;
+}
+
+/* ============================================================
+   11) FAQ — 69f681d7 (boxed)
+   (estilos internos de #orchid-faq são inline no HTML)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-69f681d7 {
+	--display: flex;
+	--flex-direction: column;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--gap: 0px 0px;
+	--content-width: min(100%, 960px);
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: var(--e-global-color-primary);
+	padding: 90px 20px 90px 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-2d63232c {
+	width: 100%;
+	max-width: 880px;
+	margin-block-end: 20px;
+}
+
+.elementor-182 .elementor-element.elementor-element-2d63232c .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+/* ---- widget HTML #orchid-faq (5c364f2d) ---- */
+.elementor-182 .elementor-element.elementor-element-5c364f2d {
+	width: 100%;
+	margin-block-end: 40px;
+}
+
+/* ---- "Comece a Entender Suas Orquídeas..." (7e6f91e3) ---- */
+.elementor-182 .elementor-element.elementor-element-7e6f91e3 {
+	width: 100%;
+	max-width: 880px;
+	margin-block-end: 18px;
+}
+
+.elementor-182 .elementor-element.elementor-element-7e6f91e3 .elementor-heading-title {
+	color: var(--e-global-color-light);
+	font-family: var(--e-global-typography-primary-font-family);
+	font-size: clamp(26px, 3.8vw, 44px);
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-57ac765e {
+	width: 100%;
+	max-width: 760px;
+	margin-block-end: 28px;
+}
+
+.elementor-182 .elementor-element.elementor-element-57ac765e .elementor-text-editor {
+	color: var(--e-global-color-text);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: clamp(16px, 1.7vw, 18px);
+	line-height: 1.7;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-57ac765e .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ---- CTA final (25e4be) ---- */
+.elementor-182 .elementor-element.elementor-element-25e4be {
+	width: 100%;
+	max-width: 480px;
+}
+
+.elementor-182 .elementor-element.elementor-element-25e4be .elementor-button {
+	background-color: var(--e-global-color-accent-dark);
+	background-image: linear-gradient(90deg, #8B5CF6 0%, #6D28D9 100%);
+	color: #fff;
+	fill: #ffffff;
+	font-family: var(--e-global-typography-accent-font-family);
+	font-size: clamp(14px, 1.6vw, 16px);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 999px;
+	padding: 18px 36px;
+	box-shadow: 0 0 22px rgba(139, 92, 246, 0.55);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	animation: vsl-cta-pulse 1.6s ease-in-out infinite;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-25e4be .elementor-button:hover,
+.elementor-182 .elementor-element.elementor-element-25e4be .elementor-button:focus {
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 0 45px rgba(139, 92, 246, 0.9);
+	animation-play-state: paused;
+}
+
+/* ============================================================
+   12) FOOTER — 2eadd354 (boxed / gradient)
+   ============================================================ */
+.elementor-182 .elementor-element.elementor-element-2eadd354 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 20px 0px;
+	--justify-content: center;
+	--align-items: center;
+	--align-content: center;
+	--content-width: min(100%, 1100px);
+	--background-transition: 0.3s;
+
+	width: 100%;
+	background-color: #4A2E7A;
+	background-image: linear-gradient(180deg, #5B3E8A 0%, #4A2E7A 100%);
+	padding: 60px 20px 40px 20px;
+}
+
+/* ---- coluna interna (17e6c6d6) ---- */
+.elementor-182 .elementor-element.elementor-element-17e6c6d6 {
+	--display: flex;
+	--flex-direction: column;
+	--gap: 16px 0px;
+	--justify-content: center;
+	--align-items: center;
+
+	width: 100%;
+}
+
+/* ---- copyright (bc5d2da) ---- */
+.elementor-182 .elementor-element.elementor-element-bc5d2da {
+	width: 100%;
+}
+
+.elementor-182 .elementor-element.elementor-element-bc5d2da .elementor-text-editor {
+	color: var(--e-global-color-muted);
+	font-family: var(--e-global-typography-text-font-family);
+	font-size: 14px;
+	line-height: 1.6;
+	text-align: center;
+}
+
+.elementor-182 .elementor-element.elementor-element-bc5d2da .elementor-text-editor p {
+	margin-block-end: 0;
+}
+
+/* ---- botão "VOLTAR AO TOPO" (4f470a37) ---- */
+.elementor-182 .elementor-element.elementor-element-4f470a37 .elementor-button {
+	background-color: transparent;
+	color: #FFFFFF;
+	fill: #FFFFFF;
+	font-family: var(--e-global-typography-accent-font-family);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.8px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+	padding: 11px 22px;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.elementor-182 .elementor-element.elementor-element-4f470a37 .elementor-button:hover,
+.elementor-182 .elementor-element.elementor-element-4f470a37 .elementor-button:focus {
+	color: #FFFFFF;
+	background-color: rgba(255, 255, 255, 0.12);
+	border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---- divider do footer (24bb0b56) ---- */
+.elementor-182 .elementor-element.elementor-element-24bb0b56 {
+	--divider-border-style: solid;
+	--divider-color: rgba(255, 255, 255, 0.25);
+	--divider-border-width: 1px;
+
+	width: 100%;
+	max-width: 180px;
+	margin-inline: auto;
+	margin-block-start: 10px;
+}
+
+.elementor-182 .elementor-element.elementor-element-24bb0b56 .elementor-divider {
+	padding-block: 0;
+}
+
+.elementor-182 .elementor-element.elementor-element-24bb0b56 .elementor-divider-separator {
+	width: 100%;
+}
+
+/* ============================================================
+   13) TABLET (max-width: 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+	.elementor-182 .elementor-element.elementor-element-2b399a14 {
+		min-height: 0;
+		padding: 90px 20px 100px 20px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-4aa67baf,
+	.elementor-182 .elementor-element.elementor-element-1dcd672f,
+	.elementor-182 .elementor-element.elementor-element-536e5ae0,
+	.elementor-182 .elementor-element.elementor-element-2f419218,
+	.elementor-182 .elementor-element.elementor-element-19c302f3,
+	.elementor-182 .elementor-element.elementor-element-7e19a4f2,
+	.elementor-182 .elementor-element.elementor-element-7ad5df86,
+	.elementor-182 .elementor-element.elementor-element-7484647c,
+	.elementor-182 .elementor-element.elementor-element-b39e0a,
+	.elementor-182 .elementor-element.elementor-element-69f681d7 {
+		padding: 70px 20px 70px 20px;
+	}
+
+	/* cards de storytelling mantêm 2 colunas no tablet */
+	.elementor-182 .elementor-element.elementor-element-41dbdd9d,
+	.elementor-182 .elementor-element.elementor-element-2d20f893,
+	.elementor-182 .elementor-element.elementor-element-9a46186 {
+		--gap: 0px 0px;
+		padding: 0;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-28a0518a,
+	.elementor-182 .elementor-element.elementor-element-59991c26,
+	.elementor-182 .elementor-element.elementor-element-4bad24b6 {
+		min-height: 300px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-74b01242,
+	.elementor-182 .elementor-element.elementor-element-701ac1ae,
+	.elementor-182 .elementor-element.elementor-element-43606e5c {
+		padding: 32px 32px;
+	}
+
+	/* grid das 3 forças: 3 colunas se mantêm, com gap menor */
+	.elementor-182 .elementor-element.elementor-element-6abadecb {
+		--gap: 20px 20px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-6fb9f657,
+	.elementor-182 .elementor-element.elementor-element-304d5df8,
+	.elementor-182 .elementor-element.elementor-element-1d350393 {
+		padding: 34px 20px 34px 20px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-6529c91c {
+		padding: 42px 30px 42px 30px;
+	}
+}
+
+/* ============================================================
+   14) MOBILE (max-width: 767px)
+   ============================================================ */
+@media (max-width: 767px) {
+	/* ---- hero ---- */
+	.elementor-182 .elementor-element.elementor-element-2b399a14 {
+		padding: 70px 16px 80px 16px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-7dc148b6 {
+		--gap: 22px 0px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-739142f6 {
+		max-width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-739142f6 .elementor-button {
+		padding: 17px 28px;
+		font-size: 14px;
+	}
+
+	/* ---- seções ---- */
+	.elementor-182 .elementor-element.elementor-element-4aa67baf,
+	.elementor-182 .elementor-element.elementor-element-1dcd672f,
+	.elementor-182 .elementor-element.elementor-element-536e5ae0,
+	.elementor-182 .elementor-element.elementor-element-2f419218,
+	.elementor-182 .elementor-element.elementor-element-19c302f3,
+	.elementor-182 .elementor-element.elementor-element-7e19a4f2,
+	.elementor-182 .elementor-element.elementor-element-7ad5df86,
+	.elementor-182 .elementor-element.elementor-element-7484647c,
+	.elementor-182 .elementor-element.elementor-element-b39e0a,
+	.elementor-182 .elementor-element.elementor-element-69f681d7 {
+		padding: 60px 16px 60px 16px;
+	}
+
+	/* ---- bônus: altura mínima mobile mantém a flor amarela visível ---- */
+	.elementor-182 .elementor-element.elementor-element-7ad5df86 {
+		min-height: 520px;
+	}
+
+	/* ---- garantia: conteúdo centralizado no mobile ---- */
+	.elementor-182 .elementor-element.elementor-element-378aef55 {
+		--align-items: center;
+		margin-block-start: 0;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-6b231f12 .elementor-heading-title,
+	.elementor-182 .elementor-element.elementor-element-55538c86 .elementor-text-editor {
+		text-align: center;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-597f897d .botao-wrap {
+		justify-content: center;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-322dd571 {
+		margin-block-start: 60px;
+	}
+
+	/* ---- cards de storytelling empilham ---- */
+	.elementor-182 .elementor-element.elementor-element-41dbdd9d,
+	.elementor-182 .elementor-element.elementor-element-2d20f893,
+	.elementor-182 .elementor-element.elementor-element-9a46186 {
+		--flex-direction: column;
+		--gap: 0px 0px;
+		padding: 0;
+		margin-block-end: 30px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-28a0518a,
+	.elementor-182 .elementor-element.elementor-element-59991c26,
+	.elementor-182 .elementor-element.elementor-element-4bad24b6 {
+		width: 100%;
+		min-height: 240px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-74b01242,
+	.elementor-182 .elementor-element.elementor-element-701ac1ae,
+	.elementor-182 .elementor-element.elementor-element-43606e5c {
+		width: 100%;
+		padding: 30px 26px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-60142673 .elementor-heading-title,
+	.elementor-182 .elementor-element.elementor-element-7a9f0a9e .elementor-heading-title,
+	.elementor-182 .elementor-element.elementor-element-2a874d1d .elementor-heading-title,
+	.elementor-182 .elementor-element.elementor-element-441024a5 .elementor-text-editor,
+	.elementor-182 .elementor-element.elementor-element-2cb50d83 .elementor-text-editor,
+	.elementor-182 .elementor-element.elementor-element-7d413a88 .elementor-text-editor {
+		text-align: center;
+	}
+
+	/* ---- grid: 1 coluna ---- */
+	.elementor-182 .elementor-element.elementor-element-6abadecb {
+		--e-con-grid-template-columns: repeat(1, 1fr);
+		--gap: 20px 0px;
+		margin-block-end: 40px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-6fb9f657,
+	.elementor-182 .elementor-element.elementor-element-304d5df8,
+	.elementor-182 .elementor-element.elementor-element-1d350393 {
+		padding: 36px 24px 36px 24px;
+	}
+
+	/* ---- CTA secundário ---- */
+	.elementor-182 .elementor-element.elementor-element-119f6ddb {
+		max-width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-119f6ddb .elementor-button {
+		padding: 16px 26px;
+		font-size: 13px;
+	}
+
+	/* ---- treinamento: empilha texto e imagem ---- */
+	.elementor-182 .elementor-element.elementor-element-702b7ec {
+		--flex-direction: column;
+		--gap: 30px 0px;
+		margin-block-end: 50px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-3f1c3a05,
+	.elementor-182 .elementor-element.elementor-element-64f367bc {
+		width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor {
+		text-align: left;
+	}
+
+	/* cards da lista: padding reduzido no mobile */
+	.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p {
+		padding: 16px 16px 16px 54px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-5918606b .elementor-text-editor p::before {
+		left: 16px;
+		top: 16px;
+	}
+
+	/* moldura da imagem: mais contida no mobile */
+	.elementor-182 .elementor-element.elementor-element-64f367bc::before {
+		inset: 16px -10px -10px 16px;
+	}
+
+	/* ---- card de preço ---- */
+	.elementor-182 .elementor-element.elementor-element-6529c91c {
+		padding: 38px 20px 38px 20px;
+		margin-block-end: 55px;
+		border-radius: 20px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-35f38daa .elementor-heading-title {
+		font-size: clamp(44px, 12vw, 58px);
+	}
+
+	.elementor-182 .elementor-element.elementor-element-24d0dea7 {
+		max-width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-24d0dea7 .elementor-icon-list-text {
+		font-size: 15px;
+	}
+
+	/* ---- instrutor: empilha ---- */
+	.elementor-182 .elementor-element.elementor-element-33834633 {
+		--flex-direction: column;
+		--gap: 30px 0px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-29a9aa4d {
+		width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-2e02e734 .elementor-heading-title,
+	.elementor-182 .elementor-element.elementor-element-d3e5f2a .elementor-text-editor {
+		text-align: center;
+	}
+
+	/* ---- CTA final ---- */
+	.elementor-182 .elementor-element.elementor-element-25e4be {
+		max-width: 100%;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-25e4be .elementor-button {
+		padding: 16px 26px;
+		font-size: 13px;
+	}
+
+	/* ---- footer ---- */
+	.elementor-182 .elementor-element.elementor-element-2eadd354 {
+		padding: 45px 16px 35px 16px;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-4f470a37 .elementor-button {
+		font-size: 12px;
+		padding: 10px 18px;
+	}
+}
+
+/* ============================================================
+   15) ACESSIBILIDADE — movimento reduzido
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	.elementor-182 .elementor-element.elementor-element-739142f6 .elementor-button,
+	.elementor-182 .elementor-element.elementor-element-119f6ddb .elementor-button,
+	.elementor-182 .elementor-element.elementor-element-25e4be .elementor-button {
+		animation: none;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-6fb9f657,
+	.elementor-182 .elementor-element.elementor-element-304d5df8,
+	.elementor-182 .elementor-element.elementor-element-1d350393 {
+		transition: none;
+	}
+}
+
+/* ============================================================
+   16) TEMA DO JSON (Elementor) — fundos com imagens + cores
+   Aplicado a partir do export elementor-185 (traduzido PT-BR).
+   ============================================================ */
+
+/* ---- HERO (2b399a14) — Slice-1 ---- */
+.elementor-182 .elementor-element.elementor-element-2b399a14 {
+	background-color: #FFFBF4;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../img/Slice-1-5-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.elementor-182 .elementor-element.elementor-element-2b399a14 .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-2b399a14 .elementor-text-editor {
+	color: #FFFFFF;
+}
+
+/* ---- STORYTELLING (4aa67baf) — Slice-2 (imagem clara, texto escuro) ---- */
+.elementor-182 .elementor-element.elementor-element-4aa67baf {
+	background-color: #FFFBF4;
+	background-image: url('../img/Slice-2-5-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* ---- Painéis de imagem dos cards de storytelling ---- */
+.elementor-182 .elementor-element.elementor-element-28a0518a {
+	background-color: #FFFBF4;
+	background-image: url('../img/01-1.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.elementor-182 .elementor-element.elementor-element-59991c26 {
+	background-color: #FFFBF4;
+	background-image: url('../img/Group-1171275300.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.elementor-182 .elementor-element.elementor-element-4bad24b6 {
+	background-color: #FFFBF4;
+	background-image: url('../img/EXPERT-3.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+/* Títulos e textos dos cards → escuros (texto fica na coluna branca do card) */
+.elementor-182 .elementor-element.elementor-element-60142673 .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-7a9f0a9e .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-2a874d1d .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-441024a5 .elementor-text-editor,
+.elementor-182 .elementor-element.elementor-element-2cb50d83 .elementor-text-editor,
+.elementor-182 .elementor-element.elementor-element-7d413a88 .elementor-text-editor {
+	color: #1A1A1A;
+}
+
+/* ---- "E é aí que a maioria trava" (1dcd672f) — Slice-3 ---- */
+.elementor-182 .elementor-element.elementor-element-1dcd672f {
+	background-color: #FFFBF4;
+	background-image: url('../img/Slice-3-6-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 612px;
+}
+
+.elementor-182 .elementor-element.elementor-element-1dcd672f .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-1dcd672f .elementor-text-editor {
+	color: #FFFFFF;
+}
+
+/* ---- "O problema não é falta de cuidado" (536e5ae0) — Slice-4 (clara) ---- */
+.elementor-182 .elementor-element.elementor-element-536e5ae0 {
+	background-color: #FFFBF4;
+	background-image: url('../img/Slice-4-4-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* ---- "No treinamento, você aprenderá" (2f419218) — Slice-5 (clara) ---- */
+.elementor-182 .elementor-element.elementor-element-2f419218 {
+	background-color: #FFFBF4;
+	background-image: url('../img/Slice-5-3-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* ---- "Não apenas estudar a teoria" (19c302f3) — Slice-6 ---- */
+.elementor-182 .elementor-element.elementor-element-19c302f3 {
+	background-color: #FFFBF4;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/Slice-6-scaled-1-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.elementor-182 .elementor-element.elementor-element-19c302f3 .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-19c302f3 .elementor-text-editor {
+	color: #FFFFFF;
+}
+
+/* ---- "Garantia de reembolso" + "bônus especial" (7e19a4f2) — Slice-7 (clara) ---- */
+.elementor-182 .elementor-element.elementor-element-7e19a4f2 {
+	background-color: #FFFBF4;
+	background-image: url('../img/Slice-7-scaled-1.png');
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 919px;
+}
+
+/* ---- "Ao se inscrever hoje, bônus exclusivo" (7ad5df86) — Slice-8 ----
+   A flor amarela fica na borda ESQUERDA da imagem (X 0-19%).
+   `left center` mantém a flor visível em qualquer largura de tela.
+   `min-height: 609px` (desktop) / `520px` (mobile) garante altura consistente
+   para o fundo se comportar igual em todos os dispositivos. */
+.elementor-182 .elementor-element.elementor-element-7ad5df86 {
+	background-color: #FFFBF4 !important;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/Slice-8-scaled-1.png') !important;
+	background-position: left bottom !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;	
+	min-width: 105% !important;
+}
+
+.elementor-182 .elementor-element.elementor-element-7ad5df86 .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-7ad5df86 .elementor-text-editor {
+	color: #FFFFFF;
+}
+
+/* ---- Preço (7484647c) — Slice-9 ----
+   A flor amarela fica no TOPO-ESQUERDO da imagem (X 0-21%, Y 0-9%).
+   `left top` mantém a flor visível em qualquer largura e a alinha
+   verticalmente com a flor da seção de bônus acima (Slice-8). */
+.elementor-182 .elementor-element.elementor-element-7484647c {
+	background-color: #FFFBF4 !important;
+	background-image: url('../img/Slice-9-scaled-1.png') !important;
+	background-position: left top !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+}
+
+.elementor-182 .elementor-element.elementor-element-7484647c .elementor-icon-list-text {
+	color: #1A1A1A;
+}
+
+/* ---- Instrutor (b39e0a) — sobre ---- */
+.elementor-182 .elementor-element.elementor-element-b39e0a {
+	background-color: #FFFBF4 !important;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.png') !important;
+	background-position: top center;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	min-height: 1057px !important;
+}
+
+.elementor-182 .elementor-element.elementor-element-b39e0a .elementor-heading-title,
+.elementor-182 .elementor-element.elementor-element-b39e0a .elementor-text-editor {
+	color: #FFFFFF;
+}
+
+/* ---- Mobile: fundo do instrutor vira gradiente lilás escuro (imagem não escala bem em telas altas) ---- */
+@media (max-width: 767px) {
+	.elementor-182 .elementor-element.elementor-element-b39e0a {
+		min-height: 0;
+		background-image: linear-gradient(180deg, #4A2E7A 0%, #2D1B4E 100%);
+		background-position: center;
+	}
+
+	/* Garantia: min-height reduzido no mobile (conteúdo define a altura) */
+	.elementor-182 .elementor-element.elementor-element-7e19a4f2 {
+		min-height: 0;
+	}
+}
+
+/* ---- Cards das 3 forças (FUNGO / INSETOS / AMBIENTE) — gradiente lilás→off-white (definido na base) ---- */
+.elementor-182 .elementor-element.elementor-element-6fb9f657,
+.elementor-182 .elementor-element.elementor-element-304d5df8,
+.elementor-182 .elementor-element.elementor-element-1d350393 {
+	border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+/* ---- Card de preço (6529c91c) — gradiente lilás→off-white (definido na base) ---- */
+.elementor-182 .elementor-element.elementor-element-6529c91c {
+	border: 2px solid rgba(139, 92, 246, 0.35);
+}
+
+/* ---- Footer (2eadd354) — gradiente roxo (original) + texto branco ---- */
+.elementor-182 .elementor-element.elementor-element-2eadd354 {
+	background-color: #8535BB;
+	background-image: linear-gradient(180deg, rgba(165, 91, 218, 0.79) 0%, #8535BB 100%);
+}
+
+.elementor-182 .elementor-element.elementor-element-2eadd354 .elementor-text-editor {
+	color: #FFFFFF;
+}
+
