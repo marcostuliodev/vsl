@@ -230,11 +230,11 @@
 	width: 50%;
 	min-height: 320px;
 	background-color: #F3EFFB;
-	background-image:
-		radial-gradient(circle at 30% 25%, rgba(139, 92, 246, 0.16), transparent 55%),
-		radial-gradient(circle at 78% 80%, rgba(109, 40, 217, 0.1), transparent 50%),
-		linear-gradient(150deg, #F3EFFB 0%, #E8E0F8 100%);
-	border-radius: 0;
+		background-image:
+			radial-gradient(circle at 30% 25%, rgba(139, 92, 246, 0.16), transparent 55%),
+			radial-gradient(circle at 78% 80%, rgba(109, 40, 217, 0.1), transparent 50%),
+			linear-gradient(150deg, #F3EFFB 0%, #E8E0F8 100%);
+		border-radius: 0;
 	box-shadow: none;
 }
 
@@ -1852,7 +1852,7 @@
    `min-height: 609px` (desktop) / `520px` (mobile) garante altura consistente
    para o fundo se comportar igual em todos os dispositivos. */
 .elementor-182 .elementor-element.elementor-element-7ad5df86 {
-	background-color: #FFFBF4 !important;
+	background-color: #a15dbddb !important;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/Slice-8-scaled-1.png') !important;
 	background-position: left bottom !important;
 	background-size: cover !important;
@@ -1883,7 +1883,7 @@
 
 /* ---- Instrutor (b39e0a) — sobre ---- */
 .elementor-182 .elementor-element.elementor-element-b39e0a {
-	background-color: #FFFBF4 !important;
+	background-color: #171717  !important;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.png') !important;
 	background-position: top center;
 	background-size: cover !important;
@@ -1896,17 +1896,69 @@
 	color: #FFFFFF;
 }
 
-/* ---- Mobile: fundo do instrutor vira gradiente lilás escuro (imagem não escala bem em telas altas) ---- */
+/* ---- Mobile: mantém o instrutor visível no lado direito da arte ---- */
 @media (max-width: 767px) {
 	.elementor-182 .elementor-element.elementor-element-b39e0a {
-		min-height: 0;
-		background-image: linear-gradient(180deg, #4A2E7A 0%, #2D1B4E 100%);
-		background-position: center;
+		min-height: 0 !important;
+		background-color: #171717 !important;
+		background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.png') !important;
+		background-position: center, 68% bottom;
+		background-size: 100% 100%, auto 280px !important;
+		background-repeat: no-repeat !important;
+		padding-bottom: 280px;
 	}
 
 	/* Garantia: min-height reduzido no mobile (conteúdo define a altura) */
 	.elementor-182 .elementor-element.elementor-element-7e19a4f2 {
 		min-height: 0;
+		background-position: center top;
+		background-size: 170% auto;
+		background-repeat: no-repeat;
+	}
+}
+
+/* ---- Correções finais de proporção e largura no mobile ---- */
+@media (max-width: 767px) {
+	.elementor-182,
+	.elementor-182 .e-con,
+	.elementor-182 .e-con-full {
+		max-width: 100%;
+		min-width: 0;
+	}
+
+	.elementor-182 img {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	/* Foto do treinamento: largura fluida sem esticar a altura natural. */
+	.elementor-182 .elementor-element.elementor-element-296e25ec,
+	.elementor-182 .elementor-element.elementor-element-296e25ec img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-74bc0c11 img {
+		width: auto;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/* Fundos preservam a escala da arte e não criam overflow lateral. */
+	.elementor-182 .elementor-element.elementor-element-7ad5df86 {
+		min-width: 0 !important;
+		background-position: left bottom !important;
+		background-size: 183% auto !important;
+		background-color: #633974;
+	}
+
+	.elementor-182 .elementor-element.elementor-element-7484647c {
+		background-position: left top !important;
+		background-size: cover !important;
 	}
 }
 
