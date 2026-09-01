@@ -2550,12 +2550,13 @@ body:not([class*="elementor-page-"]) .site-main {
 
 /* ---- Instrutor (b39e0a) — sobre ---- */
 .elementor-182 .elementor-element.elementor-element-b39e0a {
-	background-color: #171717  !important;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.webp') !important;
-	background-position: top center;
-	background-size: cover !important;
+	/* background-color: #171717  !important; */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/sobre-scaled-1.webp'), url('../img/orquidario.webp') !important;
+	background-position: center, bottom -50px, center;
+	background-size: cover, cover, cover !important;
 	background-repeat: no-repeat !important;
 	min-height: 1057px !important;
+	padding-bottom: -5em;
 }
 
 .elementor-182 .elementor-element.elementor-element-b39e0a .elementor-heading-title,
@@ -2568,11 +2569,11 @@ body:not([class*="elementor-page-"]) .site-main {
 	.elementor-182 .elementor-element.elementor-element-b39e0a {
 		min-height: 0 !important;
 		background-color: #171717 !important;
-		background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.webp') !important;
-		background-position: center, 68% bottom;
-		background-size: 100% 100%, auto 280px !important;
+		background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/sobre-scaled-1.webp'), url('../img/orquidario.webp') !important;
+background-position: center, bottom, center;
+		background-size: cover, contain, cover !important;
 		background-repeat: no-repeat !important;
-		padding-bottom: 280px;
+		padding-bottom: 10em;
 	}
 
 	/* Garantia: min-height reduzido no mobile (conteúdo define a altura) */

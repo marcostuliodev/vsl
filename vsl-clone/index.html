@@ -166,7 +166,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script>function releaseVSLContent(){document.querySelectorAll(".vslplay-show").forEach(function(el){el.style.setProperty('display','block','important');el.classList.remove('elementor-invisible');});}
 var vslReleased = false;
 function forceReleaseVSL(){if (vslReleased) return; vslReleased = true; releaseVSLContent();}
-setTimeout(forceReleaseVSL, 1000);
+setTimeout(forceReleaseVSL, 50);
 window.addEventListener("message",(e)=>{if (e.origin === "https://iframe.vslplay.com" && e.data.from === "vslplay-player") {const content = document.querySelector('[data-vslplay="5f2e38a8-3abb-4ee8-af75-2f6107e92f5e"]');if(e.data.type === "height") {content.style.paddingTop = e.data.value ? "calc(56.25% + " + e.data.value + "px)" : "56.25%";} else if(e.data.type === 'button-visibility') {if (e.data.value) {forceReleaseVSL();} else if (!vslReleased) {document.querySelectorAll(".vslplay-show").forEach((el) => el.style.setProperty('display', 'none', 'important'));}}}});</script>				</div>
 				<div class="elementor-element elementor-element-739142f6 elementor-widget-mobile__width-initial elementor-mobile-align-center elementor-align-justify elementor-widget__width-initial elementor-widget-tablet__width-initial vslplay-show elementor-invisible elementor-widget elementor-widget-button" data-id="739142f6" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="button.default">
 										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://go.hotmart.com/E103018666W?dp=1" aria-label="Obter acesso imediato ao treinamento de orquídeas por R$ 197,90">
@@ -1126,11 +1126,11 @@ Ele identificou padrões que a maioria das pessoas jamais percebe.</h2>				</div
 </script>
 
 <script>
-// Countdown timer - 24h from page load
+// Countdown timer - 4 from page load
 (function() {
   var endTime = localStorage.getItem('vsl_countdown_end');
   if (!endTime || parseInt(endTime) < Date.now()) {
-    endTime = Date.now() + (24 * 60 * 60 * 1000);
+    endTime = Date.now() + (4 * 60 * 60 * 1000);
     localStorage.setItem('vsl_countdown_end', endTime);
   }
   endTime = parseInt(endTime);
@@ -1138,7 +1138,7 @@ Ele identificou padrões que a maioria das pessoas jamais percebe.</h2>				</div
   function updateCountdown() {
     var now = Date.now();
     var diff = Math.max(0, endTime - now);
-    var hours = Math.floor(diff / (1000 * 60 * 60));
+    var hours = Math.floor(diff / (1000 * 60 * 300));
     var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
@@ -1151,7 +1151,7 @@ Ele identificou padrões que a maioria das pessoas jamais percebe.</h2>				</div
 
     if (diff <= 0) {
       // Reset for next cycle
-      endTime = Date.now() + (24 * 60 * 60 * 1000);
+      endTime = Date.now() + (4 * 60 * 60 * 1000);
       localStorage.setItem('vsl_countdown_end', endTime);
     }
   }
