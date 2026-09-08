@@ -1085,7 +1085,8 @@ body:not([class*="elementor-page-"]) .site-main {
 }
 
 .elementor-182 .elementor-element.elementor-element-5f8eb5a0 .elementor-text-editor p {
-	margin-block-end: 0;
+	text-align: center;
+	
 }
 
 /* ---- CTA secundário (119f6ddb) ---- */

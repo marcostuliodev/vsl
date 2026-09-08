@@ -1,0 +1,199 @@
+/* ============================================
+   VSL CUSTOM — Estilos customizados da página
+   Extraito de inline <style> do index.html
+   ============================================ */
+
+/* ---- Reset & Base ---- */
+.e-heading-base a, .e-paragraph-base a { all: unset; cursor: pointer; }
+form[data-element_type="e-form"].form-state-success [data-element_type="e-form-success-message"],
+form[data-element_type="e-form"].form-state-error [data-element_type="e-form-error-message"] { display: block; }
+.e-form-textarea-base:not([data-resizable]) { resize: none; }
+.e-form-submit-button-base { cursor: pointer; box-sizing: border-box; }
+img:is([sizes=auto i],[sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+
+/* ---- Botão Neon (CTA principal) ---- */
+.botao-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.botao-neon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 460px;
+  padding: 18px 26px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(90deg, #7C3AED, #5B21B6);
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(15px, 4vw, 19px);
+  letter-spacing: 0.5px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 25px rgba(139,92,246,0.85), 0 0 60px rgba(139,92,246,0.4), 0 8px 25px rgba(0,0,0,0.35);
+  animation: pulse 1.5s infinite;
+  transition: transform 0.2s ease;
+}
+.botao-neon:hover { transform: scale(1.05); }
+.botao-neon::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(139,92,246,0.7) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(25px);
+  animation: glow 1.5s infinite;
+}
+.botao-neon span {
+  background: #ffffff;
+  color: #5B21B6;
+  border-radius: 50%;
+  padding: 6px 10px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%   { transform: scale(1);    box-shadow: 0 0 20px rgba(139,92,246,0.6); }
+  50%  { transform: scale(1.06); box-shadow: 0 0 45px rgba(139,92,246,1); }
+  100% { transform: scale(1);    box-shadow: 0 0 20px rgba(139,92,246,0.6); }
+}
+@keyframes glow {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* ---- FAQ Accordion ---- */
+#orchid-faq {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  font-family: 'Sora', sans-serif;
+}
+.faq-item {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #a855f7, #7e22ce);
+  box-shadow: 0 10px 25px rgba(126,34,206,0.25);
+  transition: 0.3s;
+}
+.faq-item:hover { transform: translateY(-2px); }
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  color: white;
+  cursor: pointer;
+}
+.faq-question .left { display: flex; gap: 12px; align-items: center; }
+.faq-question .number { opacity: 0.7; font-weight: 600; }
+.faq-plus {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  color: #333;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  transition: all .4s ease;
+}
+.faq-item.active .faq-answer { max-height: 220px; padding: 15px 20px; }
+.faq-item.active .faq-plus { transform: rotate(45deg); }
+@media (max-width: 600px) {
+  .faq-question { font-size: 14px; }
+}
+
+/* ---- Reveal on Scroll ---- */
+.reveal-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-left  { transform: translate3d(-40px, 0, 0); }
+.reveal-right { transform: translate3d(40px, 0, 0); }
+.reveal-up    { transform: translate3d(0, 35px, 0); }
+.reveal-down  { transform: translate3d(0, -35px, 0); }
+@media (max-width: 767px) {
+  .reveal-left  { transform: translate3d(-20px, 0, 0); }
+  .reveal-right { transform: translate3d(20px, 0, 0); }
+  .reveal-up    { transform: translate3d(0, 20px, 0); }
+  .reveal-down  { transform: translate3d(0, -20px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: linear-gradient(135deg, #1a0533 0%, #2d1059 50%, #1a0533 100%);
+  padding: 0;
+  margin-top: 0;
+  border-top: 1px solid rgba(124, 58, 237, 0.3);
+}
+.site-footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.site-footer .site-branding { display: none; }
+.site-footer .copyright {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.site-footer .copyright p {
+  margin: 0;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.3px;
+}
+
+/* ---- Centralizar bloco de texto (5f8eb5a0) ---- */
+.elementor-182 .elementor-element.elementor-element-5f8eb5a0 {
+  width: 100% !important;
+  max-width: 780px !important;
+  margin-inline: auto !important;
+}
+
+/* ---- Utilitários & Acessibilidade ---- */
+.vslplay-show { display: none !important; }
+.elementor-widget-button.elementor-invisible,
+.elementor-widget-button .elementor-invisible { visibility: visible !important; opacity: 1 !important; transform: none !important; }
+.elementor-button:active, .botao-neon:active { transform: scale(0.97) !important; }
+a:focus-visible, .faq-question:focus-visible, .elementor-button:focus-visible {
+  outline: 3px solid #7C3AED !important;
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  body { padding-bottom: 70px; }
+  .botao-neon { padding: 15px 18px; max-width: 100%; }
+  .botao-neon span { padding: 5px 8px; }
+}
