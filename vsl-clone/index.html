@@ -81,25 +81,33 @@
   }
   </script>
 
-  <!-- Meta Pixel (carrega cedo para tracking) -->
+  <!-- Meta Pixel — COD-002 Especial Orquideas Backup -->
+  <!-- Pixel VSL: 1064624929647565 | Dataset leads: 1542713684299613 -->
   <script>
-  (function() {
-    function loadFBPixel() {
-      !function(f,b,e,v,n,t,s) {
-        if(f.fbq) return; n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
-        if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-        n.queue=[]; t=b.createElement(e); t.async=!0;
-        t.src=v; s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s);
-      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1064624929647565');
-      fbq('track', 'PageView');
-    }
-    if ('requestIdleCallback' in window) { requestIdleCallback(loadFBPixel); }
-    else { window.addEventListener('load', loadFBPixel); }
-  })();
+  !function(f,b,e,v,n,t,s) {
+    if(f.fbq) return; n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+    if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1064624929647565');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'VSL Treinamento Orquideas',
+    content_category: 'Curso Online',
+    content_ids: ['E103018666W'],
+    content_type: 'product',
+    value: 97.00,
+    currency: 'BRL'
+  });
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1064624929647565&ev=PageView&noscript=1" /></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1064624929647565&ev=PageView&noscript=1" />
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1064624929647565&ev=ViewContent&noscript=1" />
+  </noscript>
 </head>
 
 <body class="wp-singular page-template page-template-elementor_header_footer page page-id-182 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-160 elementor-page elementor-page-182">
@@ -301,7 +309,7 @@
     <div class="elementor-element elementor-element-cta-forcas vslplay-show e-flex e-con e-parent" data-id="cta-forcas" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}" style="background:linear-gradient(135deg,#f3e8ff 0%,#ede9fe 100%);padding:30px 20px;text-align:center;">
       <p style="font-size:clamp(14px,3vw,18px);color:#302b63;margin-bottom:8px;font-family:Arial,sans-serif;font-weight:700;">Você já identificou o problema. Agora resolva.</p>
       <p style="font-size:clamp(12px,2.5vw,14px);color:#4a4a4a;margin-bottom:20px;font-family:Arial,sans-serif;">Acesse o treinamento completo: <strong style="color:#7C3AED;font-size:1.15em;">12x de R$ 10,03</strong> <span style="font-size:0.85em;color:#888;">(ou R$ 97,00 à vista)</span></p>
-      <a href="https://pay.hotmart.com/E103018666W" aria-label="Garantir acesso ao treinamento de orquídeas por R$ 97,00" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Treinamento Orquídeas', content_category: 'Curso Online', value: 97.00, currency: 'BRL'});" style="display:inline-block;background:linear-gradient(90deg,#7C3AED,#5B21B6);color:#fff;padding:16px 40px;border-radius:30px;font-weight:800;font-size:clamp(14px,3.5vw,17px);text-decoration:none;font-family:Arial,sans-serif;box-shadow:0 4px 20px rgba(124,58,237,0.4);transition:transform 0.2s;">QUERO COMEÇAR AGORA →</a>
+      <a href="https://pay.hotmart.com/E103018666W" aria-label="Garantir acesso ao treinamento de orquídeas por R$ 97,00" onclick="if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:'Treinamento Orquideas',content_category:'Curso Online',content_ids:['E103018666W'],content_type:'product',value:97.00,currency:'BRL',num_items:1});}" style="display:inline-block;background:linear-gradient(90deg,#7C3AED,#5B21B6);color:#fff;padding:16px 40px;border-radius:30px;font-weight:800;font-size:clamp(14px,3.5vw,17px);text-decoration:none;font-family:Arial,sans-serif;box-shadow:0 4px 20px rgba(124,58,237,0.4);transition:transform 0.2s;">QUERO COMEÇAR AGORA →</a>
     </div>
 
     <!-- ============================================
@@ -346,6 +354,82 @@
       </div>
       <div class="elementor-element elementor-element-34485aaa elementor-widget__width-initial reveal-scroll reveal-left elementor-widget elementor-widget-heading" data-id="34485aaa" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
         <h2 class="elementor-heading-title elementor-size-default">Há mais de 11 anos, Rone trabalha em estreita colaboração com produtores de orquídeas.</h2>
+      </div>
+    </div>
+
+    <!-- ============================================
+         SEÇÃO: MÓDULOS DO CURSO
+         ============================================ -->
+    <div class="elementor-element elementor-element-modulos e-con-full vslplay-show e-flex e-con e-parent" data-id="modulos" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+      <div style="max-width:900px;margin:30px auto;padding:0 20px;">
+        <h2 style="text-align:center;font-size:clamp(22px,4vw,32px);color:#302b63;margin-bottom:10px;font-family:Arial,sans-serif;font-weight:800;">O que você vai aprender no treinamento</h2>
+        <p style="text-align:center;font-size:clamp(13px,2.5vw,15px);color:#4a4a4a;margin-bottom:30px;font-family:Arial,sans-serif;">8 módulos completos para dominar o cultivo de orquídeas</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+          <!-- Módulo 1 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">1</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Insetos Prejudiciais</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 2 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">2</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Fungos nas orquídeas</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 3 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">3</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Receitas caseiras</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 4 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">4</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Grupo das Orchidaceae</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 5 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">5</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Soldado insetos amigos das orquídeas</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 6 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">6</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Adubação passo a passo</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 7 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">7</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Fungicidas e Inseticidas químicos</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+          <!-- Módulo 8 -->
+          <div style="background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07);border-left:4px solid #7C3AED;display:flex;align-items:flex-start;gap:14px;">
+            <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;font-family:Arial,sans-serif;">8</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:15px;color:#302b63;margin-bottom:6px;font-family:Arial,sans-serif;">Animais e as orquídeas</div>
+              <div style="height:4px;background:#ede9fe;border-radius:4px;overflow:hidden;width:100%;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;"></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -403,6 +487,10 @@
       <div class="elementor-element elementor-element-6d80a184 elementor-widget__width-initial reveal-scroll reveal-left elementor-widget elementor-widget-heading" data-id="6d80a184" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
         <h2 class="elementor-heading-title elementor-size-default">Avaliado em R$ 650, incluído gratuitamente.</h2>
       </div>
+     
+      <div class="elementor-element elementor-element-ebook-valor elementor-widget__width-initial reveal-scroll reveal-left elementor-widget elementor-widget-heading" data-id="ebook-valor" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+        <h2 class="elementor-heading-title elementor-size-default" style="color:#7C3AED;font-size:clamp(14px,3vw,18px);font-family:Arial,sans-serif;margin-top:16px;">+ E-book Cultivo Básico (R$ 47,00) — <span style="color:#FFD700;font-weight:800;">GRÁTIS</span></h2>
+      </div>
     </div>
 
     <!-- CTA ESTRATÉGICO 2: Pós-Bônus
@@ -428,6 +516,20 @@
           </div>
         </div>
       </div>
+       <!-- Bônus extra: E-book -->
+      <div class="elementor-element elementor-element-ebook-bonus e-con-full reveal-scroll reveal-left e-flex e-con e-child" data-id="ebook-bonus" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}" style="background:linear-gradient(135deg,#f5f0ff 0%,#ede9fe 100%);border-radius:16px;padding:24px;margin-top:20px;border:2px solid #FFD700;">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex-shrink:0;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#FFD700,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(255,215,0,0.3);">📖</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+              <span style="background:#FFD700;color:#302b63;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;font-family:Arial,sans-serif;letter-spacing:0.5px;">Bônus Especial</span>
+              <span style="font-size:12px;color:#888;font-family:Arial,sans-serif;">Valorizado em <strong style="color:#e74c3c;text-decoration:line-through;">R$ 47,00</strong></span>
+            </div>
+            <div style="font-weight:700;font-size:16px;color:#302b63;margin-bottom:4px;font-family:Arial,sans-serif;">E-book exclusivo: Cultivo Básico das Orquídeas</div>
+            <p style="font-size:13px;color:#4a4a4a;line-height:1.6;margin:0;font-family:Arial,sans-serif;">Guia completo para iniciantes — aprenda os fundamentos do cultivo, desde a escolha do substrato até os cuidados diários, de forma simples e objetiva.</p>
+          </div>
+        </div>
+      </div><br><br>
       <div class="elementor-element elementor-element-6529c91c e-con-full reveal-scroll reveal-up e-flex e-con e-child" data-id="6529c91c" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;_ha_eqh_enable&quot;:false}">
         <div class="elementor-element elementor-element-24bcbe6c elementor-widget__width-initial elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="24bcbe6c" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
           <div class="elementor-divider"><span class="elementor-divider-separator"></span></div>
@@ -455,7 +557,7 @@
         </div>
         <div class="elementor-element elementor-element-38f81515 elementor-widget elementor-widget-html" data-id="38f81515" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
           <div class="botao-wrap" style="display:flex;flex-direction:column;align-items:center;gap:10px;">
-            <a href="https://pay.hotmart.com/E103018666W" class="botao-neon" aria-label="Garantir acesso ao treinamento de orquídeas por R$ 97,00" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Treinamento Orquídeas', content_category: 'Curso Online', value: 97.00, currency: 'BRL'});">QUERO ME INSCREVER AGORA <span aria-hidden="true">›</span></a>
+            <a href="https://pay.hotmart.com/E103018666W" class="botao-neon" aria-label="Garantir acesso ao treinamento de orquídeas por R$ 97,00" onclick="if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:'Treinamento Orquideas',content_category:'Curso Online',content_ids:['E103018666W'],content_type:'product',value:97.00,currency:'BRL',num_items:1});}">QUERO ME INSCREVER AGORA <span aria-hidden="true">›</span></a>
             <p style="font-size:13px;color:#4a4a4a;font-family:Arial,sans-serif;margin:0;text-align:center;"><strong style="color:#7C3AED;">12x de R$ 10,03</strong> — menos que um café por dia.</p>
             <p style="font-size:12px;color:#4a4a4a;font-family:Arial,sans-serif;margin:0;text-align:center;">🔒 Pagamento seguro via Hotmart • Garantia de 7 dias</p>
           </div>
