@@ -1,17 +1,31 @@
 /**
- * Countdown — Timer do banner de urgência
- * Usa localStorage para manter consistência entre recarregamentos
+ * Countdown — Timer com validação de integridade no localStorage
  */
 (function () {
   var STORAGE_KEY = 'vsl_countdown_end';
   var DURATION_MS = 4 * 60 * 60 * 1000; // 4 horas
+  var MAX_REASONABLE = 24 * 60 * 60 * 1000; // Máximo 24h no futuro
+  var MAX_PAST = 60 * 60 * 1000; // Máximo 1h no passado
 
-  var endTime = localStorage.getItem(STORAGE_KEY);
-  if (!endTime || parseInt(endTime) < Date.now()) {
-    endTime = Date.now() + DURATION_MS;
-    localStorage.setItem(STORAGE_KEY, endTime);
+  function getEndTime() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return null;
+    var val = parseInt(stored, 10);
+    if (isNaN(val) || val <= 0) return null;
+    var diff = val - Date.now();
+    if (diff > MAX_REASONABLE || diff < -MAX_PAST) return null;
+    return val;
   }
-  endTime = parseInt(endTime);
+
+  var endTime = getEndTime();
+  if (endTime === null || endTime < Date.now()) {
+    endTime = Date.now() + DURATION_MS;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(endTime));
+    } catch (e) {
+      // localStorage indisponível — ignorar
+    }
+  }
 
   var hEl = document.getElementById('cd-hours');
   var mEl = document.getElementById('cd-minutes');
@@ -29,7 +43,11 @@
 
     if (diff <= 0) {
       endTime = Date.now() + DURATION_MS;
-      localStorage.setItem(STORAGE_KEY, endTime);
+      try {
+        localStorage.setItem(STORAGE_KEY, String(endTime));
+      } catch (e) {
+        // ignorar
+      }
     }
   }
 
