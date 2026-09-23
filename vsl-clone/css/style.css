@@ -541,12 +541,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--c-border);
 }
-.demo-lesson__video-wrap iframe {
+.demo-lesson__video-player {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   border: 0;
+  object-fit: cover;
+  background: var(--c-dark);
 }
 .demo-lesson__video-caption {
   margin-top: var(--space-lg);
