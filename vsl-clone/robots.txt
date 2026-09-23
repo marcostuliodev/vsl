@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /*?s=
+Disallow: /*&s=
+Disallow: /*page=
+Host: fungoseinsetos.com.br
+Sitemap: https://fungoseinsetos.com.br/sitemap.xml
