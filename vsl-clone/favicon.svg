@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Fungos e Insetos em Orquídeas</title>
+  <defs>
+    <linearGradient id="background" x1="8" y1="6" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#166534"/>
+      <stop offset="1" stop-color="#0C0A09"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#background)"/>
+  <path d="M32 53V35" fill="none" stroke="#BBF7D0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 13c-8 0-13 5-13 11 0 5 5 9 13 9s13-4 13-9c0-6-5-11-13-11Z" fill="#fff"/>
+  <path d="M14 28c1-7 7-11 13-9 5 2 7 7 5 13-2 6-7 9-13 7-5-2-8-6-5-11Z" fill="#F0FDF4"/>
+  <path d="M50 28c-1-7-7-11-13-9-5 2-7 7-5 13 2 6 7 9 13 7 5-2 8-6 5-11Z" fill="#F0FDF4"/>
+  <path d="M20 46c-2-6 1-12 7-13 5-1 9 2 10 7 1 6-3 11-9 11-4 0-7-2-8-5Z" fill="#DCFCE7"/>
+  <path d="M44 46c2-6-1-12-7-13-5-1-9 2-10 7-1 6 3 11 9 11 4 0 7-2 8-5Z" fill="#DCFCE7"/>
+  <circle cx="32" cy="35" r="6" fill="#F59E0B"/>
+  <circle cx="32" cy="35" r="2.5" fill="#14532D"/>
+</svg>

@@ -516,6 +516,62 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-size: var(--fs-xs);
   color: var(--c-text-muted);
 }
+.social-proof__extra {
+  max-width: 800px;
+  margin: 0 auto var(--space-3xl);
+}
+.social-proof__extra-inner {
+  padding: var(--space-xl);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+.social-proof__extra-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.social-proof__extra-icon {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+  border-radius: var(--radius-full);
+}
+.social-proof__extra-title {
+  margin: 0 0 4px;
+  color: var(--c-text);
+  font-family: var(--ff-headline);
+  font-size: var(--fs-xl);
+  line-height: 1.25;
+}
+.social-proof__extra-desc {
+  margin: 0;
+  color: var(--c-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+.social-proof__video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 55%;
+  overflow: hidden;
+  background: var(--c-dark);
+  border-radius: var(--radius-lg);
+}
+.social-proof__video-player {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .social-proof__stats {
   display: flex;
   justify-content: center;
@@ -1480,6 +1536,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .problem__step-content p { font-size: var(--fs-sm); }
   
   /* Social Proof */
+  .social-proof__extra { margin-bottom: var(--space-2xl); }
+  .social-proof__extra-inner { padding: var(--space-lg); border-radius: var(--radius-lg); }
+  .social-proof__extra-header { gap: var(--space-sm); margin-bottom: var(--space-md); }
+  .social-proof__extra-icon { flex-basis: 40px; width: 40px; height: 40px; }
+  .social-proof__extra-title { font-size: var(--fs-lg); }
+  .social-proof__extra-desc { font-size: var(--fs-xs); }
   .social-proof__stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
   .stat { text-align: center; }
   .stat__num { font-size: var(--fs-2xl); }
