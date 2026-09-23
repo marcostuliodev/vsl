@@ -32,7 +32,7 @@
     {
       html: '<span class="hero__title--accent">Guia Completo:</span> Com o Conhecimento Certo, Você Erradica Cada Praga e Doença',
       title: 'Curso Completo de Fungos e Insetos em Orquídeas',
-      image: 'https://images.pexels.com/photos/5025664/pexels-photo-5025664.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://www.pexels.com/pt-br/foto/close-up-de-um-inseto-em-folha-verde-em-bilaspur-37648232/',
       imageAlt: 'Dano de tripes em folha de orquídea'
     },
     {
