@@ -15,36 +15,42 @@
       html: '<span class="hero__title--accent">Fungos e Insetos</span> em Orquídeas: O Método Para Erradicar Antes Que Seja Tarde',
       title: 'Fungos e Insetos em Orquídeas | Treinamento Completo',
       image: 'https://images.pexels.com/photos/20826372/pexels-photo-20826372.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageAlt: 'Cochonilhas aglomeradas em caule de planta'
+      imageAlt: 'Cochonilhas aglomeradas em caule de planta',
+      bonus: 'Ao adquirir o curso, você ganha de brinde o e-book de cultivo de orquídeas.'
     },
     {
       html: 'Como <span class="hero__title--accent">Eliminar Fungos e Insetos de Orquídeas em 14 Dias</span> — O Método Que 1.200 Produtores Aprovaram',
       title: 'Eliminar Fungos e Insetos de Orquídeas em 14 Dias | Treinamento',
       image: 'https://images.pexels.com/photos/760223/pexels-photo-760223.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageAlt: 'Ácaros-aranha vermelhos em folha de orquídea'
+      imageAlt: 'Ácaros-aranha vermelhos em folha de orquídea',
+      bonus: 'Ao adquirir o curso, você ganha de brinde o e-book de cultivo de orquídeas.'
     },
     {
       html: '<span class="hero__title--accent">Suas Orquídeas Estão Morrendo?</span> Descubra os Fungos e Insetos Que Destroem Suas Plantas',
       title: 'Suas Orquídeas Estão Morrendo? | Descubra a Causa',
       image: 'https://images.pexels.com/photos/29220332/pexels-photo-29220332.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageAlt: 'Mofo cinza (Botrytis) crescendo em planta'
+      imageAlt: 'Mofo cinza (Botrytis) crescendo em planta',
+      bonus: 'Ao adquirir o curso, você ganha de brinde o e-book de cultivo de orquídeas.'
     },
     {
       html: '<span class="hero__title--accent">Guia Completo:</span> Com o Conhecimento Certo, Você Erradica Cada Praga e Doença',
       title: 'Curso Completo de Fungos e Insetos em Orquídeas',
       image: 'https://images.pexels.com/photos/37648232/pexels-photo-37648232.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageAlt: 'Dano de tripes em folha de orquídea'
+      imageAlt: 'Dano de tripes em folha de orquídea',
+      bonus: 'Ao adquirir o curso, você ganha de brinde o e-book de cultivo de orquídeas.'
     },
     {
       html: '<span class="hero__title--accent">Fusarium, Botrytis e Cochonilhas:</span> Identifique e Erradique Antes Que Seja Tarde',
       title: 'Fusarium, Botrytis e Cochonilhas | Treinamento Completo',
       image: 'https://images.pexels.com/photos/4856406/pexels-photo-4856406.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageAlt: 'Fungo Fusarium crescendo em caule de planta'
+      imageAlt: 'Fungo Fusarium crescendo em caule de planta',
+      bonus: 'Ao adquirir o curso, você ganha de brinde o e-book de cultivo de orquídeas.'
     }
   ];
 
   var heroEl = document.getElementById('hero-title');
   var heroImageEl = document.getElementById('hero-main-image');
+  var heroBonusEl = document.getElementById('hero-bonus');
 
   function applyHeadline(i) {
     var h = headlines[i];
@@ -55,6 +61,9 @@
     if (heroImageEl) {
       heroImageEl.src = h.image;
       heroImageEl.alt = h.imageAlt;
+    }
+    if (heroBonusEl && h.bonus) {
+      heroBonusEl.textContent = h.bonus;
     }
     document.title = h.title;
   }

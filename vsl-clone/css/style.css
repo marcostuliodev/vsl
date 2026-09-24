@@ -199,6 +199,19 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.hero__bonus {
+  display: inline-block;
+  max-width: 100%;
+  margin: -4px 0 var(--space-lg);
+  padding: 8px 14px;
+  color: var(--c-primary-dark);
+  background: var(--c-primary-light);
+  border: 1px solid var(--c-badge-border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+}
 .hero__sub {
   font-size: var(--fs-lg);
   color: var(--c-text-muted);
@@ -1513,6 +1526,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .hero { padding: 80px 0 40px; }
   .hero__image { height: 220px; border-radius: var(--radius-lg); }
   .hero__title { font-size: clamp(1.5rem, 6vw, 2.25rem); margin-bottom: var(--space-md); }
+  .hero__bonus { margin-bottom: var(--space-md); padding: 7px 10px; font-size: var(--fs-xs); }
   .hero__sub { font-size: var(--fs-sm); margin-bottom: var(--space-md); }
   .hero__price { flex-direction: column; gap: 4px; margin-bottom: var(--space-lg); }
   .hero__price-current { font-size: var(--fs-2xl); }
