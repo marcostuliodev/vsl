@@ -585,6 +585,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   height: 100%;
   object-fit: cover;
 }
+.social-proof__note {
+  margin: var(--space-lg) auto 0;
+  max-width: 680px;
+  color: var(--c-text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  text-align: center;
+}
 .social-proof__stats {
   display: flex;
   justify-content: center;
@@ -625,6 +633,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-size: var(--fs-sm);
   color: var(--c-text-muted);
   font-style: italic;
+  text-align: center;
+}
+.demo-lesson__note {
+  margin: var(--space-lg) auto 0;
+  max-width: 680px;
+  color: var(--c-text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
   text-align: center;
 }
 .stat__num {

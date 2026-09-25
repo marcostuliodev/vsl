@@ -6,5 +6,7 @@ Disallow: /wp-includes/
 Disallow: /*?s=
 Disallow: /*&s=
 Disallow: /*page=
+Disallow: /index-original.html
+Disallow: /elementor-185-2026-08-19.json
 Host: fungoseinsetos.com.br
 Sitemap: https://fungoseinsetos.com.br/sitemap.xml
