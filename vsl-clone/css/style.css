@@ -1743,6 +1743,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 120px;
+  aspect-ratio: auto;
   color: var(--c-primary);
 }
 .signal__content {
@@ -2158,6 +2160,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .receive__grid,
   .objections__grid { grid-template-columns: 1fr; }
   .signal__media { aspect-ratio: 16 / 9; }
+  .signal__media--icon { height: 96px; aspect-ratio: auto; }
   .signal__title { font-size: var(--fs-base); }
   .signal__desc { font-size: var(--fs-xs); }
   .signals__message { font-size: var(--fs-base); text-align: left; }
