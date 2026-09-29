@@ -2,7 +2,7 @@
  * VSL Player — Libera conteúdo e redimensiona iframe (SEGURANÇA: postMessage sanitizado)
  */
 (function () {
-  var SELECTOR = '[data-vslplay="5f2e38a8-3abb-4ee8-af75-2f6107e92f5e"]';
+  var SELECTOR = '#vsl-player';
   var ALLOWED_ORIGIN = 'https://iframe.vslplay.com';
 
   // Whitelist de tipos de mensagem aceitos
