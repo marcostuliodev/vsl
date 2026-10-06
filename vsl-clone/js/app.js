@@ -71,6 +71,8 @@
   var headerEl = document.getElementById('header');
   var btt = document.getElementById('back-to-top');
   var lastScroll = 0;
+  var navigatingToOffer = false;
+  var offerNavigationTargetY = 0;
 
   function onScroll() {
     var y = window.scrollY;
@@ -84,10 +86,12 @@
     }
 
     if (headerEl) {
-      if (y > 100) {
+      if (navigatingToOffer) {
+        headerEl.classList.add('header--hidden');
+      } else if (y > 100) {
         if (y > lastScroll && y > 300) {
           headerEl.classList.add('header--hidden');
-        } else {
+        } else if (y < lastScroll) {
           headerEl.classList.remove('header--hidden');
         }
       } else {
@@ -125,8 +129,32 @@
       var target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + window.scrollY - 80;
+      var scrollTarget = href === '#oferta' ? (target.querySelector('.offer__card') || target) : target;
+      var targetY = scrollTarget.getBoundingClientRect().top + window.scrollY;
+      var headerOffset = headerEl ? headerEl.getBoundingClientRect().height : 0;
+      if (href === '#oferta') {
+        navigatingToOffer = true;
+        offerNavigationTargetY = targetY - 16;
+        headerOffset = 0;
+        if (headerEl) headerEl.classList.add('header--hidden');
+        lastScroll = window.scrollY;
+      }
+      var top = targetY - headerOffset - 16;
       window.scrollTo({ top: top, behavior: prefersReduced ? 'auto' : 'smooth' });
+      if (href === '#oferta') {
+        var navigationStartedAt = performance.now();
+        function releaseOfferNavigationAtTarget() {
+          var atTarget = Math.abs(window.scrollY - offerNavigationTargetY) < 2;
+          var timedOut = performance.now() - navigationStartedAt > 15000;
+          if (atTarget || timedOut) {
+            navigatingToOffer = false;
+            if (headerEl) headerEl.classList.add('header--hidden');
+            return;
+          }
+          window.requestAnimationFrame(releaseOfferNavigationAtTarget);
+        }
+        window.requestAnimationFrame(releaseOfferNavigationAtTarget);
+      }
     });
   });
 
