@@ -1,0 +1,1338 @@
+/* =============================================================================
+   vsl-ref.css — Ported component library from vsl-clone, scoped for vsl-EUA
+   =============================================================================
+
+   ORIGIN
+   ------
+   Ported from  ../vsl-clone/css/style.css  (the clean BEM design system).
+   Blocks ported: Tokens, scoped Reset, Utilities, Badge, Reveal on scroll,
+   Container, Buttons, Section header, Signals, Pests, Method, Beneficial
+   insects, Demo lesson, Modules, Objections, Not-for, CTA band.
+   Blocks NOT ported (the landing page already owns its own versions of these in
+   a different visual language): header, hero, vsl, urgency, problem*, social
+   -proof, testimonial, instructor, bonus, offer, receive, price, guarantee,
+   faq, cta-final, footer, sticky-cta, back-to-top.
+
+   SCOPING — MANDATORY
+   -------------------
+   Each ported section carries class="vslref" on its own <section> element, so
+   .vslref is always an ancestor of the component markup below.
+
+   EVERY selector in this file MUST start with `.vslref` (e.g. `.vslref .foo`,
+   `.vslref .foo .bar`, `.vslref .btn`, `.js .vslref [data-reveal]`,
+   and `.vslref` itself when declaring tokens/typography).
+
+   Why: `.container`, `.btn`, `.modules`, `.badge`, `.signal` and friends are
+   dangerously generic class names. Unscoped, they would either leak INTO the
+   rest of the page or be beaten/overridden by Elementor's own stylesheets
+   (css/all-consolidated.css) depending on source order. Scoping guarantees
+   zero bleed in both directions.
+
+   → RULE: any new selector added to this file must be added SCOPED. The only
+     legal unscoped at-rules are `@keyframes` (whose names MUST be namespaced
+     with the `vr-` prefix, e.g. `@keyframes vr-fade-up`) and `@media` blocks
+     (which wrap already-scoped selectors). `*`, `html`, `body` and bare
+     `:root` rules are forbidden here — the page provides its own.
+
+   FONTS — RETOKENIZED
+   -------------------
+   The source design system referenced three font families that are NOT loaded
+   by this page. All three were replaced by the fonts index.html already serves
+   from Google Fonts:
+
+     --vr-ff-display  Roboto Slab  (400/600/700/800) — big display headings
+     --vr-ff-label    Sora        (400/500/600)     — small uppercase labels
+     --vr-ff-body     Roboto      (400/500/600/700/800) — everything else
+
+   NOTE: the three original faces must never be reintroduced, and no @import /
+   <link> to a font provider may be added from here. Label styles that use Sora
+   are capped at weight 600, because Sora is not loaded at 700.
+
+   TAILWIND-FREE, MINIFICATION-FREE
+   --------------------------------
+   Hand-written, commented and sectioned exactly like the source file on purpose
+   (this file is the design contract for the new sections — keep it readable).
+
+   [data-reveal] NOTE
+   ------------------
+   The hidden start state is applied by `.vslref [data-reveal]`, so the markup
+   MUST be paired with a scroll-observer script that adds `.is-visible`.
+   (`.revealed` is kept as an alias of the source file's end-state class so
+   markup copied verbatim from the reference project also works.)
+   ============================================================================= */
+
+
+/* =============================================================================
+   01. TOKENS  (was :root in the source — moved onto the wrapper, vr- prefixed)
+   ============================================================================= */
+.vslref {
+  /* ---- Brand ---- */
+  --vr-c-primary:       #7C3AED;
+  --vr-c-primary-dark:  #5B21B6;
+  --vr-c-primary-light: #F3F0FF;
+  --vr-c-accent:        #A855F7;
+  --vr-c-deep:          #7E22CE;
+
+  /* ---- Neutrals ---- */
+  --vr-c-ink:        #302B63;   /* headings / dark text        */
+  --vr-c-text:       #4A4A4A;   /* body copy                   */
+  --vr-c-text-muted: #666;      /* secondary copy (5.3:1 min)  */
+  --vr-c-border:     #E8E4F7;
+  --vr-c-tint:       #F8F6FF;
+  --vr-c-bg:         #FAF9FF;
+  --vr-c-surface:    #FFFFFF;
+  --vr-c-dark:       #302B63;   /* dark surface (video letterbox) */
+  --vr-c-on-primary: #FFFFFF;
+
+  /* ---- Typefaces ---- */
+  --vr-ff-display: 'Roboto Slab', Georgia, 'Times New Roman', serif;
+  --vr-ff-label:   'Sora', 'Roboto', Arial, sans-serif;
+  --vr-ff-body:    'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* ---- Type scale ---- */
+  --vr-fs-xs:   0.75rem;
+  --vr-fs-sm:   0.875rem;
+  --vr-fs-base: 1rem;
+  --vr-fs-lg:   1.125rem;
+  --vr-fs-xl:   1.25rem;
+  --vr-fs-2xl:  1.5rem;
+  --vr-fs-3xl:  2rem;
+  --vr-fs-4xl:  2.5rem;
+  --vr-fs-5xl:  3.25rem;
+
+  --vr-fw-normal:    400;
+  --vr-fw-medium:    500;
+  --vr-fw-semibold:  600;
+  --vr-fw-bold:      700;
+  --vr-fw-extrabold: 800;
+  --vr-fw-black:     900;
+
+  /* ---- Spacing ---- */
+  --vr-space-xs:  0.25rem;
+  --vr-space-sm:  0.5rem;
+  --vr-space-md:  1rem;
+  --vr-space-lg:  1.5rem;
+  --vr-space-xl:  2rem;
+  --vr-space-2xl: 3rem;
+  --vr-space-3xl: 4rem;
+  --vr-space-4xl: 6rem;
+
+  /* ---- Radii ---- */
+  --vr-radius-sm:   6px;
+  --vr-radius-md:   10px;
+  --vr-radius-lg:   16px;
+  --vr-radius-xl:   24px;
+  --vr-radius-full: 9999px;
+
+  /* ---- Shadows (tinted with the ink colour instead of neutral black) ---- */
+  --vr-shadow-sm:  0 1px 3px rgba(48, 43, 99, 0.08);
+  --vr-shadow-md:  0 4px 16px rgba(48, 43, 99, 0.12);
+  --vr-shadow-lg:  0 12px 40px rgba(48, 43, 99, 0.14);
+  --vr-shadow-xl:  0 20px 60px rgba(48, 43, 99, 0.18);
+  --vr-shadow-primary:    0 4px 20px rgba(124, 58, 237, 0.28);
+  --vr-shadow-primary-lg: 0 8px 30px rgba(124, 58, 237, 0.38);
+
+  /* ---- Motion ---- */
+  --vr-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --vr-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Wrapper typography (source `body` rules, moved here) ---- */
+  font-family: var(--vr-ff-body);
+  font-size: var(--vr-fs-base);
+  line-height: 1.6;
+  color: var(--vr-c-text);
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Keeps the ported sections' stacking/overflow self-contained so they can
+     never collide with Elementor's own z-index layers above or below them. */
+  isolation: isolate;
+}
+
+
+/* =============================================================================
+   02. RESET — container-local only
+   -----------------------------------------------------------------------------
+   Deliberately NOT the source's global reset (no `*`, no `html`, no `body`):
+   the Elementor page already handles that. This block only neutralises browser
+   defaults *inside* the wrapper so the ported components render identically to
+   the reference page. `:where()` keeps every inner part at zero specificity so
+   component rules below always win.
+   ============================================================================= */
+.vslref,
+.vslref *,
+.vslref *::before,
+.vslref *::after {
+  box-sizing: border-box;
+}
+
+.vslref :where(h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote) {
+  margin: 0;
+}
+
+.vslref :where(ul, ol) {
+  list-style: none;
+  padding: 0;
+}
+
+.vslref :where(img) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vslref :where(a) {
+  text-decoration: none;
+  color: inherit;
+}
+
+.vslref :where(video) a { text-decoration: underline; }
+
+.vslref :where(button) {
+  font: inherit;
+  cursor: pointer;
+}
+
+
+/* =============================================================================
+   03. UTILITIES
+   ============================================================================= */
+
+/* Visually hidden, still announced by screen readers. */
+.vslref .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Scoped replacement for the source's global `:focus-visible`. No border-radius
+   here on purpose — rounding the focused element itself would deform cards. */
+.vslref :where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--vr-c-deep);
+  outline-offset: 3px;
+}
+
+/* ---- Badge ---- */
+.vslref .badge {
+  display: inline-block;
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-xs);
+  font-weight: var(--vr-fw-semibold);   /* Sora is not loaded at 700 */
+  letter-spacing: 0.04em;
+  color: var(--vr-c-primary);
+  background: var(--vr-c-primary-light);
+  border: 1px solid var(--vr-c-primary);
+  padding: 6px 16px;
+  border-radius: var(--vr-radius-full);
+  margin-bottom: var(--vr-space-lg);
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+
+
+/* =============================================================================
+   04. REVEAL ON SCROLL
+   -----------------------------------------------------------------------------
+   The hidden start state is applied by `.vslref [data-reveal]`, so the markup
+   MUST be paired with a scroll-observer script that adds `.is-visible`.
+   ============================================================================= */
+.js .vslref [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js .vslref [data-reveal].is-visible,
+.js .vslref [data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .vslref [data-reveal],
+  .js .vslref [data-reveal].is-visible,
+  .js .vslref [data-reveal].revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* =============================================================================
+   05. CONTAINER
+   ============================================================================= */
+.vslref .container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* =============================================================================
+   06. BUTTONS
+   ============================================================================= */
+.vslref .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--vr-ff-body);
+  font-weight: var(--vr-fw-bold);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--vr-radius-md);
+  cursor: pointer;
+  /* `border: 2px solid transparent` instead of `border: none`: the ring is
+     invisible but reserves space, so --sm/--lg/--xl keep identical box metrics
+     and nothing shifts if a bordered variant is added later. */
+  border: 2px solid transparent;
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.vslref .btn--primary {
+  background: linear-gradient(135deg, var(--vr-c-primary), var(--vr-c-primary-dark));
+  color: var(--vr-c-on-primary);
+  box-shadow: var(--vr-shadow-primary);
+}
+
+.vslref .btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--vr-shadow-primary-lg);
+}
+
+.vslref .btn--primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.vslref .btn--white {
+  background: var(--vr-c-surface);
+  color: var(--vr-c-primary-dark);
+}
+
+.vslref .btn--white:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--vr-shadow-md);
+}
+
+.vslref .btn--white:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.vslref .btn--sm { padding: 10px 24px; font-size: var(--vr-fs-sm); }
+.vslref .btn--lg { padding: 16px 36px; font-size: var(--vr-fs-base); }
+.vslref .btn--xl { padding: 20px 48px; font-size: var(--vr-fs-lg); }
+
+/* Always-visible focus ring: `:focus` for engines without :focus-visible,
+   `:focus:not(:focus-visible)` keeps it off for mouse/touch clicks. */
+.vslref .btn:focus {
+  outline: 3px solid var(--vr-c-deep);
+  outline-offset: 3px;
+}
+.vslref .btn:focus:not(:focus-visible) {
+  outline: none;
+}
+.vslref .btn:focus-visible {
+  outline: 3px solid var(--vr-c-deep);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .vslref .btn--xl { padding: 16px 32px; font-size: var(--vr-fs-base); width: 100%; }
+}
+
+
+/* =============================================================================
+   07. SECTION HEADER
+   ============================================================================= */
+.vslref .section-header {
+  text-align: center;
+  margin-bottom: var(--vr-space-3xl);
+}
+
+.vslref .section-header__tag {
+  display: inline-block;
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-xs);
+  font-weight: var(--vr-fw-semibold);   /* Sora cap */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vr-c-primary);
+  background: var(--vr-c-primary-light);
+  padding: 6px 16px;
+  border-radius: var(--vr-radius-full);
+  margin-bottom: var(--vr-space-md);
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.vslref .section-header__title {
+  font-family: var(--vr-ff-display);   /* Roboto Slab */
+  font-size: clamp(1.75rem, 3.5vw, var(--vr-fs-4xl));
+  font-weight: var(--vr-fw-bold);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--vr-c-ink);
+  text-wrap: balance;
+}
+
+.vslref .section-header__sub {
+  font-size: var(--vr-fs-lg);
+  color: var(--vr-c-text-muted);
+  margin-top: var(--vr-space-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =============================================================================
+   08. SIGNALS
+   ============================================================================= */
+.vslref .signals {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-surface);
+}
+
+.vslref .signals__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--vr-space-lg);
+}
+
+.vslref .signal {
+  display: flex;
+  flex-direction: column;
+  background: var(--vr-c-bg);
+  border: 1px solid var(--vr-c-border);
+  border-radius: var(--vr-radius-lg);
+  overflow: hidden;
+  transition: var(--vr-transition);
+}
+
+.vslref .signal:hover {
+  box-shadow: var(--vr-shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--vr-c-accent);
+}
+
+/* 16/10 media box — keeps every card the same height regardless of artwork. */
+.vslref .signal__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--vr-c-primary-light);
+}
+
+.vslref .signal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vslref .signal:hover .signal__image {
+  transform: scale(1.04);
+}
+
+.vslref .signal__content {
+  padding: var(--vr-space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vslref .signal__title {
+  font-family: var(--vr-ff-display);   /* Roboto Slab */
+  font-size: var(--vr-fs-lg);
+  font-weight: var(--vr-fw-bold);
+  line-height: 1.25;
+  color: var(--vr-c-ink);
+  margin-bottom: var(--vr-space-sm);
+}
+
+.vslref .signal__desc {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.6;
+}
+
+.vslref .signals__message {
+  max-width: 760px;
+  margin: var(--vr-space-2xl) auto 0;
+  text-align: center;
+  font-size: var(--vr-fs-lg);
+  font-weight: var(--vr-fw-semibold);
+  color: var(--vr-c-text);
+  line-height: 1.6;
+}
+
+
+/* =============================================================================
+   09. PESTS — detailed threat rows
+   ============================================================================= */
+.vslref .pests {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-surface);
+}
+
+.vslref .pest-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--vr-space-3xl);
+  align-items: center;
+  margin-bottom: var(--vr-space-4xl);
+}
+
+.vslref .pest-detail--reverse {
+  grid-template-columns: 1.3fr 1fr;
+}
+
+.vslref .pest-detail--reverse .pest-detail__image-wrap { order: 2; }
+.vslref .pest-detail--reverse .pest-detail__content    { order: 1; }
+
+.vslref .pest-detail__image-wrap {
+  border-radius: var(--vr-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--vr-shadow-lg);
+  border: 3px solid var(--vr-c-border);
+}
+
+.vslref .pest-detail__image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vslref .pest-detail__image-wrap:hover .pest-detail__image {
+  transform: scale(1.04);
+}
+
+.vslref .pest-detail__category {
+  display: inline-block;
+  background: var(--vr-c-primary-light);
+  color: var(--vr-c-primary);
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-xs);
+  font-weight: var(--vr-fw-semibold);   /* Sora cap */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: var(--vr-radius-full);
+  margin-bottom: var(--vr-space-md);
+}
+
+.vslref .pest-detail__title {
+  font-family: var(--vr-ff-display);   /* Roboto Slab */
+  font-size: var(--vr-fs-3xl);
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-ink);
+  margin-bottom: var(--vr-space-md);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.vslref .pest-detail__desc {
+  font-size: var(--vr-fs-base);
+  color: var(--vr-c-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--vr-space-lg);
+}
+
+/* list-style is cleared by the scoped reset; the dot marker is drawn by ::before
+   so it never fights a native bullet. */
+.vslref .pest-detail__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vr-space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vslref .pest-detail__facts li {
+  position: relative;
+  padding-left: 20px;
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.5;
+}
+
+.vslref .pest-detail__facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  background: var(--vr-c-primary);
+  border-radius: 50%;
+}
+
+.vslref .threats__cta {
+  text-align: center;
+  margin-top: var(--vr-space-2xl);
+}
+
+.vslref .pests .threats__cta {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .vslref .pest-detail {
+    grid-template-columns: 1fr;
+    gap: var(--vr-space-xl);
+  }
+  .vslref .pest-detail--reverse {
+    grid-template-columns: 1fr;
+  }
+  /* Stop flipping: both children go back to source order in the single column. */
+  .vslref .pest-detail--reverse .pest-detail__image-wrap,
+  .vslref .pest-detail--reverse .pest-detail__content {
+    order: unset;
+  }
+  .vslref .pest-detail__image { height: 260px; }
+  .vslref .pest-detail__title { font-size: var(--vr-fs-2xl); }
+}
+
+
+/* =============================================================================
+   10. METHOD — "pensar antes de agir"
+   ============================================================================= */
+.vslref .method {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-bg);
+}
+
+.vslref .method__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--vr-space-lg);
+}
+
+.vslref .method__card {
+  background: var(--vr-c-surface);
+  border: 1px solid var(--vr-c-border);
+  border-radius: var(--vr-radius-lg);
+  padding: var(--vr-space-xl);
+  transition: var(--vr-transition);
+}
+
+.vslref .method__card:hover {
+  border-color: var(--vr-c-primary);
+  box-shadow: var(--vr-shadow-sm);
+}
+
+.vslref .method__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: var(--vr-space-md);
+  border-radius: var(--vr-radius-full);
+  background: var(--vr-c-primary-light);
+  color: var(--vr-c-primary);
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-sm);
+  font-weight: var(--vr-fw-semibold);   /* Sora cap */
+}
+
+.vslref .method__title {
+  font-family: var(--vr-ff-display);   /* Roboto Slab */
+  font-size: var(--vr-fs-lg);
+  font-weight: var(--vr-fw-bold);
+  line-height: 1.25;
+  color: var(--vr-c-ink);
+  margin-bottom: var(--vr-space-sm);
+}
+
+.vslref .method__desc {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.6;
+}
+
+.vslref .method__note {
+  max-width: 780px;
+  margin: var(--vr-space-2xl) auto 0;
+  padding: var(--vr-space-lg) var(--vr-space-xl);
+  background: var(--vr-c-primary-light);
+  border-radius: var(--vr-radius-lg);
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text);
+  line-height: 1.7;
+}
+
+
+/* =============================================================================
+   11. BENEFICIAL INSECTS
+   ============================================================================= */
+.vslref .beneficial {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-bg);
+}
+
+.vslref .beneficial__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--vr-space-xl);
+  margin-bottom: var(--vr-space-2xl);
+}
+
+.vslref .beneficial__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--vr-c-surface);
+  border-radius: var(--vr-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--vr-c-border);
+  transition: var(--vr-transition);
+}
+
+.vslref .beneficial__card:hover {
+  box-shadow: var(--vr-shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--vr-c-accent);
+}
+
+.vslref .beneficial__image-wrap {
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vslref .beneficial__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vslref .beneficial__card:hover .beneficial__image {
+  transform: scale(1.05);
+}
+
+.vslref .beneficial__content {
+  padding: var(--vr-space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vslref .beneficial__title {
+  font-size: var(--vr-fs-lg);
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-ink);
+  margin-bottom: var(--vr-space-sm);
+  line-height: 1.35;
+}
+
+.vslref .beneficial__desc {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--vr-space-md);
+  flex: 1;
+}
+
+.vslref .beneficial__tag {
+  align-self: flex-start;
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-xs);
+  font-weight: var(--vr-fw-semibold);   /* Sora cap */
+  color: var(--vr-c-primary-dark);
+  background: var(--vr-c-primary-light);
+  padding: 6px 14px;
+  border-radius: var(--vr-radius-full);
+  display: inline-block;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.vslref .beneficial__note {
+  background: linear-gradient(135deg, var(--vr-c-primary-light), var(--vr-c-tint));
+  border-left: 4px solid var(--vr-c-accent);
+  border-radius: 0 var(--vr-radius-md) var(--vr-radius-md) 0;
+  padding: var(--vr-space-lg) var(--vr-space-xl);
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.7;
+}
+
+.vslref .beneficial__note strong {
+  color: var(--vr-c-ink);
+}
+
+@media (max-width: 600px) {
+  .vslref .beneficial__grid { grid-template-columns: 1fr; }
+}
+
+
+/* =============================================================================
+   12. DEMO LESSON — 16:9 player
+   ============================================================================= */
+.vslref .demo-lesson {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-bg);
+}
+
+.vslref .demo-lesson__video {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vslref .demo-lesson__video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;          /* 16:9 without JS */
+  border-radius: var(--vr-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--vr-shadow-lg);
+  border: 1px solid var(--vr-c-border);
+}
+
+.vslref .demo-lesson__video-player {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  background: var(--vr-c-dark);
+}
+
+
+/* =============================================================================
+   13. MODULES
+   ============================================================================= */
+.vslref .modules {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-bg);
+}
+
+.vslref .modules__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--vr-space-lg);
+}
+
+.vslref .module {
+  position: relative;
+  overflow: hidden;
+  background: var(--vr-c-surface);
+  border-radius: var(--vr-radius-lg);
+  padding: var(--vr-space-xl);
+  border: 1px solid var(--vr-c-border);
+  transition: var(--vr-transition);
+}
+
+/* Left accent bar */
+.vslref .module::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--vr-c-primary);
+  border-radius: 4px 0 0 4px;
+  transition: background-color 0.6s ease;
+}
+
+.vslref .module:hover {
+  box-shadow: var(--vr-shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--vr-c-primary);
+}
+
+/* `color` here is what the inline icon's `stroke="currentColor"` resolves to,
+   so it must be set on the box itself and flipped on hover. */
+.vslref .module__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--vr-radius-md);
+  background: var(--vr-c-primary-light);
+  color: var(--vr-c-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--vr-space-md);
+  line-height: 0;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.vslref .module:hover .module__icon {
+  background: var(--vr-c-primary);
+  color: var(--vr-c-on-primary);
+}
+
+.vslref .module__num {
+  display: inline-block;
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-xs);
+  font-weight: var(--vr-fw-semibold);   /* Sora cap */
+  color: var(--vr-c-primary);
+  background: var(--vr-c-primary-light);
+  padding: 4px 12px;
+  border-radius: var(--vr-radius-full);
+  margin-bottom: var(--vr-space-sm);
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.vslref .module__title {
+  font-size: var(--vr-fs-base);
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-ink);
+  margin-bottom: var(--vr-space-sm);
+  line-height: 1.4;
+}
+
+.vslref .module__desc {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.6;
+}
+
+
+/* =============================================================================
+   14. OBJECTIONS
+   ============================================================================= */
+.vslref .objections {
+  padding: var(--vr-space-4xl) 0;
+  background: var(--vr-c-surface);
+}
+
+.vslref .objections__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--vr-space-lg);
+}
+
+.vslref .objection {
+  padding: var(--vr-space-xl);
+  background: var(--vr-c-bg);
+  border: 1px solid var(--vr-c-border);
+  border-radius: var(--vr-radius-lg);
+}
+
+.vslref .objection__q {
+  font-size: var(--vr-fs-lg);
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-ink);
+  line-height: 1.35;
+  margin-bottom: var(--vr-space-sm);
+}
+
+.vslref .objection__a {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+  line-height: 1.65;
+}
+
+
+/* =============================================================================
+   15. NOT FOR
+   -----------------------------------------------------------------------------
+   The source used a red tint (#FEF2F2 / #FECACA) which is off-brand on a purple
+   page. Retokenized to the brand tint + `deep` accent, keeping the same
+   distinct "this isn't for you" card hierarchy.
+   ============================================================================= */
+.vslref .not-for {
+  padding: var(--vr-space-3xl) 0;
+  background: var(--vr-c-surface);
+}
+
+.vslref .not-for__card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--vr-c-tint);
+  border: 2px solid var(--vr-c-border);
+  border-radius: var(--vr-radius-xl);
+  padding: var(--vr-space-2xl);
+  text-align: center;
+}
+
+.vslref .not-for__title {
+  font-size: var(--vr-fs-xl);
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-deep);
+  margin-bottom: var(--vr-space-lg);
+  line-height: 1.3;
+}
+
+.vslref .not-for__list {
+  text-align: left;
+  margin-bottom: var(--vr-space-lg);
+  list-style: none;
+  padding: 0;
+}
+
+.vslref .not-for__list li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  font-size: var(--vr-fs-base);
+  color: var(--vr-c-text);
+  line-height: 1.6;
+}
+
+.vslref .not-for__list li::before {
+  content: '\2715';                     /* ✕ */
+  position: absolute;
+  left: 0;
+  color: var(--vr-c-deep);
+  font-weight: var(--vr-fw-bold);
+}
+
+.vslref .not-for__note {
+  font-size: var(--vr-fs-sm);
+  color: var(--vr-c-text-muted);
+}
+
+
+/* =============================================================================
+   16. CTA BAND
+   ============================================================================= */
+.vslref .cta-band {
+  padding: 0 0 var(--vr-space-4xl);
+  background: var(--vr-c-bg);
+}
+
+.vslref .cta-band__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vslref .cta-band__btn {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.vslref .cta-band__trust {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--vr-space-md) var(--vr-space-xl);
+  margin-top: var(--vr-space-md);
+  list-style: none;
+  padding: 0;
+}
+
+.vslref .cta-band__trust li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--vr-fs-xs);
+  color: var(--vr-c-text-muted);
+}
+
+
+/* =============================================================================
+   17. RESPONSIVE — Tablet (≤ 900px)
+   ============================================================================= */
+@media (max-width: 900px) {
+  /* Two-up instead of auto-fit so line lengths stay readable on tablets. */
+  .vslref .signals__grid    { grid-template-columns: repeat(2, 1fr); }
+  .vslref .method__grid     { grid-template-columns: repeat(2, 1fr); }
+  .vslref .modules__grid    { grid-template-columns: 1fr 1fr; }
+  .vslref .beneficial__grid { grid-template-columns: 1fr 1fr; }
+
+  /* Pests collapse to a single column — and stop flipping, so the image is
+     always first in DOM order. Both orders reset here (the source only reset
+     one of them at 900px and left the other dangling until 768px). */
+  .vslref .pest-detail,
+  .vslref .pest-detail--reverse {
+    grid-template-columns: 1fr;
+  }
+  .vslref .pest-detail--reverse .pest-detail__image-wrap,
+  .vslref .pest-detail--reverse .pest-detail__content {
+    order: unset;
+  }
+}
+
+
+/* =============================================================================
+   18. RESPONSIVE — Mobile (≤ 600px)
+   ============================================================================= */
+@media (max-width: 600px) {
+  /* Layout */
+  .vslref .container { padding: 0 16px; }
+
+  /* Grids → 1 column */
+  .vslref .signals__grid,
+  .vslref .method__grid,
+  .vslref .modules__grid,
+  .vslref .beneficial__grid,
+  .vslref .objections__grid {
+    grid-template-columns: 1fr;
+  }
+  .vslref .modules__grid    { gap: var(--vr-space-md); }
+  .vslref .beneficial__grid { gap: var(--vr-space-md); }
+
+  /* Container + badge */
+  .vslref .badge {
+    font-size: 0.65rem;
+    padding: 4px 12px;
+    margin-bottom: var(--vr-space-md);
+  }
+
+  /* Section header */
+  .vslref .section-header__title { font-size: clamp(1.25rem, 5vw, var(--vr-fs-2xl)); }
+  .vslref .section-header__sub   { font-size: var(--vr-fs-sm); }
+
+  /* Signals */
+  .vslref .signal__media   { aspect-ratio: 16 / 9; }
+  .vslref .signal__title   { font-size: var(--vr-fs-base); }
+  .vslref .signal__desc    { font-size: var(--vr-fs-xs); }
+  .vslref .signals__message { font-size: var(--vr-fs-base); text-align: left; }
+
+  /* Pests */
+  .vslref .pest-detail { gap: var(--vr-space-lg); }
+  .vslref .pest-detail__image  { height: 200px; }
+  .vslref .pest-detail__title  { font-size: var(--vr-fs-base); }
+  .vslref .pest-detail__desc   { font-size: var(--vr-fs-sm); }
+  .vslref .pest-detail__facts li { font-size: var(--vr-fs-xs); }
+  .vslref .threats__cta .btn {
+    width: 100%;
+    font-size: var(--vr-fs-sm);
+  }
+
+  /* Method */
+  .vslref .method__card { padding: var(--vr-space-lg); }
+  .vslref .method__title { font-size: var(--vr-fs-base); }
+  .vslref .method__desc  { font-size: var(--vr-fs-xs); }
+  .vslref .method__note {
+    padding: var(--vr-space-md);
+    font-size: var(--vr-fs-xs);
+  }
+
+  /* Beneficial */
+  .vslref .beneficial__image-wrap { width: 100%; height: 180px; }
+  .vslref .beneficial__content    { padding: var(--vr-space-md); }
+  .vslref .beneficial__title      { font-size: var(--vr-fs-sm); }
+  .vslref .beneficial__desc {
+    font-size: var(--vr-fs-xs);
+    margin-bottom: var(--vr-space-sm);
+  }
+  .vslref .beneficial__tag  { font-size: 0.65rem; padding: 4px 10px; }
+  .vslref .beneficial__note { padding: var(--vr-space-md); font-size: var(--vr-fs-xs); }
+
+  /* Modules */
+  .vslref .module { padding: var(--vr-space-lg); }
+  .vslref .module__icon { width: 44px; height: 44px; }
+  .vslref .module__icon svg { width: 24px; height: 24px; }
+  .vslref .module__title { font-size: var(--vr-fs-sm); }
+  .vslref .module__desc  { font-size: var(--vr-fs-xs); }
+
+  /* Objections */
+  .vslref .objection { padding: var(--vr-space-lg); }
+  .vslref .objection__q { font-size: var(--vr-fs-base); }
+  .vslref .objection__a { font-size: var(--vr-fs-xs); }
+
+  /* Not for */
+  .vslref .not-for__card  { padding: var(--vr-space-lg); }
+  .vslref .not-for__title { font-size: var(--vr-fs-lg); }
+  .vslref .not-for__list li { font-size: var(--vr-fs-sm); padding: 8px 0 8px 24px; }
+
+  /* CTA band */
+  .vslref .cta-band { padding-bottom: var(--vr-space-3xl); }
+  .vslref .cta-band__btn {
+    font-size: var(--vr-fs-sm);
+    padding: 14px 18px;
+  }
+  .vslref .cta-band__trust {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+
+/* =============================================================================
+   19. RESPONSIVE — Small mobile (≤ 380px)
+   ============================================================================= */
+@media (max-width: 380px) {
+  .vslref .modules__grid { gap: var(--vr-space-sm); }
+  .vslref .module { padding: var(--vr-space-md); }
+  .vslref .beneficial__image-wrap { height: 150px; }
+}
+
+
+/* =============================================================================
+   20. REDUCED MOTION — kill hover lifts / colour fades, keep states static
+   ============================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  /* No colour/shadow fades. */
+  .vslref .signal,
+  .vslref .method__card,
+  .vslref .module,
+  .vslref .beneficial__card,
+  .vslref .btn,
+  .vslref .pest-detail__image,
+  .vslref .signal__image,
+  .vslref .beneficial__image {
+    transition: none;
+  }
+
+  /* No hover lifts / zooms — hover states stay, they just stop moving. */
+  .vslref .btn--primary:hover,
+  .vslref .btn--white:hover,
+  .vslref .signal:hover,
+  .vslref .signal:hover .signal__image,
+  .vslref .module:hover,
+  .vslref .beneficial__card:hover,
+  .vslref .beneficial__card:hover .beneficial__image,
+  .vslref .pest-detail__image-wrap:hover .pest-detail__image {
+    transform: none;
+  }
+}
+
+
+/* =============================================================================
+   21. ADAPTATIONS — variants added for the vsl-EUA (Brazilians-in-the-US) edition
+   -----------------------------------------------------------------------------
+   The reference site illustrated every signal card and every pest entry with a
+   photo. Those photos are either the reference owner's own files or licensed
+   stock (iStock) — neither is reusable here. Recognition in these two sections
+   is carried by the *description*, not the picture, so they use:
+     · signal__media--icon  → a tinted tile with a line icon (symptoms)
+     · image-wrap--data      → a "spec card" (Latin binomial + region) for pests
+   Beneficial insects keep their photos: there, recognising the animal IS the
+   point, and those are free Pexels-licensed images stored locally.
+   Keep every selector scoped to .vslref.
+   ============================================================================= */
+
+/* ---- 21.1 Symptom cards: icon tile instead of photo ------------------- */
+.vslref .signal__media--icon {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 120% at 30% 15%, #FFFFFF 0%, var(--vr-c-primary-light) 70%);
+  color: var(--vr-c-primary);
+}
+
+.vslref .signal__media--icon svg {
+  width: 58px;
+  height: 58px;
+  transition: transform 0.4s var(--vr-ease, ease);
+}
+
+.vslref .signal:hover .signal__media--icon svg {
+  transform: scale(1.08);
+}
+
+/* ---- 21.2 Pest entries: spec card instead of photo -------------------- */
+.vslref .pest-detail__image-wrap--data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--vr-space-sm);
+  min-height: 320px;
+  padding: var(--vr-space-xl) var(--vr-space-lg);
+  text-align: center;
+  background: linear-gradient(160deg, #FAF9FF 0%, var(--vr-c-primary-light) 100%);
+  border-color: rgba(124, 58, 237, 0.18);
+}
+
+.vslref .pest-detail__figure-icon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: var(--vr-space-xs);
+  border-radius: var(--vr-radius-full);
+  background: #fff;
+  color: var(--vr-c-primary);
+  box-shadow: var(--vr-shadow-sm);
+}
+
+.vslref .pest-detail__figure-icon svg { width: 40px; height: 40px; }
+
+.vslref .pest-detail__species {
+  font-family: var(--vr-ff-display);
+  font-size: var(--vr-fs-lg);
+  font-style: italic;
+  font-weight: var(--vr-fw-bold);
+  color: var(--vr-c-ink);
+  line-height: 1.25;
+}
+
+.vslref .pest-detail__common {
+  font-family: var(--vr-ff-label);
+  font-size: var(--vr-fs-sm);
+  font-weight: var(--vr-fw-semibold);
+  color: var(--vr-c-primary);
+}
+
+.vslref .pest-detail__region {
+  margin-top: var(--vr-space-xs);
+  padding-top: var(--vr-space-sm);
+  border-top: 1px solid rgba(124, 58, 237, 0.16);
+  font-size: var(--vr-fs-xs);
+  line-height: 1.4;
+  color: var(--vr-c-text-muted);
+  max-width: 30ch;
+}
+
+/* ---- 21.3 Beneficial cards: inline scientific name ------------------- */
+.vslref .beneficial__sci {
+  font-family: var(--vr-ff-body);
+  font-size: 0.78em;
+  font-weight: var(--vr-fw-normal);
+  color: var(--vr-c-text-muted);
+}
+
+/* ---- 21.4 Responsive + reduced motion for the new variants ----------- */
+@media (max-width: 768px) {
+  .vslref .pest-detail__image-wrap--data { min-height: 0; }
+  .vslref .pest-detail__region { max-width: none; }
+}
+
+@media (max-width: 600px) {
+  .vslref .signal__media--icon { aspect-ratio: 16 / 7; }
+  .vslref .signal__media--icon svg { width: 46px; height: 46px; }
+  .vslref .pest-detail__figure-icon { width: 62px; height: 62px; }
+  .vslref .pest-detail__figure-icon svg { width: 32px; height: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vslref .signal__media--icon svg,
+  .vslref .signal:hover .signal__media--icon svg { transform: none; transition: none; }
+}
+
+
+/* =============================================================================
+   22. APPENDIX HEAD — divider that labels the deep reference content
+   -----------------------------------------------------------------------------
+   The heavy reference blocks (pests, water, method, beneficials) were moved
+   below the conversion path so cold traffic reaches the price before ~40 KB of
+   educational text. This divider makes that reordering legible instead of
+   looking like the page simply lost its middle.
+   ============================================================================= */
+.vslref.appendix-head {
+  padding: var(--vr-space-4xl) 0 var(--vr-space-2xl);
+  background: var(--vr-c-tint);
+  border-top: 3px solid rgba(124, 58, 237, 0.18);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+.vslref.appendix-head .section-header { margin-bottom: 0; }
+.vslref.appendix-head .section-header__sub { margin-bottom: 0; }
+
+@media (max-width: 600px) {
+  .vslref.appendix-head { padding: var(--vr-space-2xl) 0 var(--vr-space-lg); }
+}

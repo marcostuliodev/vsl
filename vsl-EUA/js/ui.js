@@ -69,6 +69,51 @@
     });
   }, 2500);
 
+  /* ---- Reveal on Scroll — imported blocks (.vslref [data-reveal]) ----
+     The sections ported from vsl.fungoseinsetos.com.br ship a hidden start
+     state in css/vsl-ref.css that needs a script to clear. This is a
+     deliberately separate pass from .reveal-scroll above: that one writes
+     inline styles, this one toggles the .is-visible class. Both are wired to
+     the same safety net — a 2500 ms fallback reveals everything, and
+     prefers-reduced-motion skips the observer entirely — so no content can be
+     stranded at opacity:0 if IntersectionObserver never fires. */
+  function initRefReveal() {
+    var items = document.querySelectorAll('.vslref [data-reveal]');
+    if (!items.length) return;
+
+    var show = function (el) { el.classList.add('is-visible'); };
+
+    if (prefersReducedMotion) {
+      items.forEach(show);
+      return;
+    }
+
+    if ('IntersectionObserver' in window) {
+      var refObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            show(entry.target);
+            refObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      items.forEach(function (el) { refObserver.observe(el); });
+    } else {
+      items.forEach(show);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initRefReveal);
+  window.addEventListener('load', initRefReveal);
+  setTimeout(initRefReveal, 300);
+  setTimeout(initRefReveal, 900);
+  setTimeout(function () {
+    document.querySelectorAll('.vslref [data-reveal]').forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }, 2500);
+
   /* ---- FAQ Accordion ---- */
   var faqItems = document.querySelectorAll('#orchid-faq .faq-item');
   faqItems.forEach(function (item) {

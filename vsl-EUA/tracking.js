@@ -310,4 +310,15 @@
   });
 
   window.setInterval(function () { send("heartbeat", {}, false); }, 30000);
+
+  /**
+   * Public hook so other modules (e.g. js/checkout-tracking.js) can report
+   * business events — most importantly a completed Purchase — into the same
+   * metrics pipeline as the automatic page/perf events above.
+   */
+  window.__vslMetrics = {
+    send: function (eventName, data, useBeacon) {
+      send(eventName, data, useBeacon === undefined ? true : useBeacon);
+    }
+  };
 }());
